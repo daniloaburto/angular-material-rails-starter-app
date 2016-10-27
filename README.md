@@ -45,3 +45,21 @@ Para levantar los servicios:
   ```
   $ docker-compose up
   ```
+
+## Características:
+  - Entorno de desarrollo y producción usando docker
+  - Scaffolding usando makefile
+  - Rails 4
+  - PostgreSQL
+  - Redis
+  - Pundit
+  - Pry
+  - Sidekiq
+  - I18N (es-CL, pt-BR, en)
+
+## TODO:
+  - Backup automático de BD
+  - Agregar ActiveAdmin
+  - Integración con Slack
+  - Bower
+  - Angular o React
