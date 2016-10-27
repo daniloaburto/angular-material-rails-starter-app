@@ -1,4 +1,4 @@
-postgres:
+database:
   image: postgres:9.3
   environment:
     POSTGRES_USER: postgres
@@ -21,10 +21,8 @@ rails:
    - .:/home/app/webapp
    - /home/app/webapp/public/assets
   links:
-   - postgres
+   - database
    - redis
   environment:
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: postgres
     PASSENGER_APP_ENV: development
     TERM: xterm-256color

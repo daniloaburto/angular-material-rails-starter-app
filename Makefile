@@ -1,8 +1,6 @@
 ENV := development
 DOCKERFILE := docker-compose.dev.yml
 DOCKER_CONTAINER_NAME := rails_seed_app
-DOCKER_HOST_IP := $(shell /sbin/ip route|awk '/default/ { print $$3 }')
-
 #
 clean_db:
 	rake db:drop:all RAILS_ENV=$(ENV);		# Drop DB
@@ -79,4 +77,5 @@ enter:
 # Inside docker's container
 s: server
 server:
+	$(eval DOCKER_HOST_IP := $(shell /sbin/ip route|awk '/default/ { print $$3 }'))
 	TRUSTED_IP=$(DOCKER_HOST_IP) RAILS_ENV=$(ENV) rails s -b 0.0.0.0 -p 3000
