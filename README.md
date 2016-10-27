@@ -43,7 +43,7 @@ La aplicación también puede ser desplegada en producción a través de contene
 Para levantar los servicios:
 
   ```
-  $ docker-compose up
+  $ POSTGRES_USER=<user> POSTGRES_PASSWORD=<pass> docker-compose up -d
   ```
 
 ## Características:
