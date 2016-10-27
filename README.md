@@ -1,3 +1,4 @@
+# Rails Seed
 
 ## Instalación y ejecución para desarrollo en OS X
 
@@ -43,3 +44,4 @@ Para levantar los servicios:
 
   ```
   $ docker-compose up
+  ```
