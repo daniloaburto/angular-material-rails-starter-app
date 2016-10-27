@@ -16,7 +16,7 @@ Luego, para levantar los contenedores se debe ejecutar el siguiente comando:
   $ make run
   ```
 
-Para entrar al contenedor de la aplicación Rails:
+Para entrar al contenedor de la aplicación Rails, ejecutar en otra pestaña:
 
   ```
   $ make enter
