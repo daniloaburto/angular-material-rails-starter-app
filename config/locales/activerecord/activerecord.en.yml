@@ -1,0 +1,33 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+      country:
+        one: Country
+        other: Countries
+      parameter:
+        one: Parameter
+        other: Parameters
+    attributes:
+      user:
+        firstname: Firstname
+        lastname: Lastname
+        name: Name
+        role: Role
+        role_name: Role
+        enabled: Enabled
+        enabled_user: Enabled
+        country_id: Country
+      country:
+        name: Name
+      parameter:
+        key: Key
+        value: Value
+    others:
+      id: Id
+      created_at: Created at
+      updated_at: Updated at
+      boolean_true: "Yes"
+      boolean_false: "No"

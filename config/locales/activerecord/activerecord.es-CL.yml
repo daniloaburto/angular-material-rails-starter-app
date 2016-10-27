@@ -1,0 +1,33 @@
+es-CL:
+  activerecord:
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
+      country:
+        one: País
+        other: Países
+      parameter:
+        one: Parámetro
+        other: Parámetros
+    attributes:
+      user:
+        firstname: Primer nombre
+        lastname: Apellido
+        name: Nombre
+        role: Rol
+        role_name: Rol
+        enabled: Habilitado
+        enabled_user: Habilitado
+        country_id: País
+      country:
+        name: Nombre
+      parameter:
+        key: Clave
+        value: Valor
+    others:
+      id: Id
+      created_at: Creado
+      updated_at: Actualizado
+      boolean_true: "Si"
+      boolean_false: "No"

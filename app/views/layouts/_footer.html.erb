@@ -1,0 +1,29 @@
+    <!-- App's JS -->
+    <%= javascript_include_tag 'application' %>
+    <!-- END OF App's JS -->
+
+    <!-- I18n js default -->
+    <script>
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+      I18n.fallbacks = true;
+    </script>
+
+    <!-- Controller's JS -->
+    <%#= javascript_include_tag(params[:controller]) unless params[:controller] == 'devise/sessions' %>
+    <!-- END OF Controller's JS -->
+
+    <!-- View's JS -->
+    <%= yield :script %>
+    <!-- END OF View's JS -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      //var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      //(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      //g.src='//www.google-analytics.com/ga.js';
+      //s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,25 @@
+postgres:
+  image: postgres:9.3
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+  volumes:
+    - /opt/app-postgresql/data:/var/lib/postgresql/data
+
+redis:
+  image: redis:3.0.5
+
+rails:
+  build: .
+  dockerfile: Dockerfile
+  ports:
+   - "80:80"
+  volumes:
+   - /home/app/webapp/public/assets
+  links:
+   - postgres
+   - redis
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: postgres
+    PASSENGER_APP_ENV: production

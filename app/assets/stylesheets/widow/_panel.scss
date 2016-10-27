@@ -1,0 +1,42 @@
+// Panel Addons
+.panel-heading-toolbox {
+  padding: 5px 5px 5px 5px;
+  @include clearfix;
+
+  .panel-title{
+    margin: 8px 10px;
+    display: inline-block;
+  }
+
+  > .panel-toolbar {
+    float: right;
+    display: inline-block;
+
+    > .form-control {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+
+  form.form-inline {
+    display: inline-block;
+  }
+}
+
+.panel-footer-toolbox {
+  padding: 5px 5px 5px 5px;
+  @include clearfix;
+
+  > .panel-toolbar {
+    float: right;
+    display: inline-block;
+  }
+
+  .pagination {
+    margin-top:0;
+    margin-left:0;
+    margin-right:0;
+    margin-bottom:0;
+  }
+}

@@ -1,0 +1,87 @@
+---
+en:
+  header:
+    html_title: 'Rails App'
+    no_javascript: 'You must have JavaScript enabled in your browser to utilize the full functionality of this website.'
+    activate_javascript: '¿How to active Javascript?'
+    title: 'Hello World'
+  crud_views:
+    search: 'Search'
+    search_by_attribute: 'Search por %{attribute}'
+    search_resources: 'Search %{resources}'
+    list: 'List'
+    details: 'Details'
+    new: 'New'
+    new_fem: 'New'
+    new_model: 'New %{model}'
+    new_model_fem: 'New %{model}'
+    export: 'Export'
+    export_resources: 'Export %{resources}'
+    actions: 'Actions'
+    edit_resource: 'Edit %{resource}'
+    delete_resource: 'Delete %{resource}'
+    edit: 'Edit'
+    delete: 'Delete'
+    delete_model: 'Delete %{model}'
+    are_you_sure: '¿Are you sure?'
+    cancel: 'Cancel'
+    back: 'Back'
+    save: 'Save'
+    search: 'Search'
+    select_resource: 'Select %{resource}'
+    add_resource: 'Add %{resource}'
+    success_on_model_action: 'The %{resource} has been %{action} succesfully.'
+    success_on_model_action_fem: 'The %{resource} has been %{action} succesfully.'
+    not_evaluated: 'Not evaluated'
+    photo: 'Picture'
+    photos: 'Pictures'
+    example: 'Example'
+    example_short: 'Ex'
+    role_undefined: 'Undefined role'
+    no_resources_found: 'No %{resources} found'
+  breadcrumb:
+    edit: 'Edit'
+    create: 'Create'
+    details: 'Details'
+    index: 'Index'
+    new_observation: 'New observation'
+  top_menu:
+    user_profile: 'User Profile'
+    welcome: 'Welcome'
+    app_config: Configuration
+    sign_out: Sign out
+    languages:
+      es_cl: 'Español'
+      pt_br: 'Portuguêss'
+      en_us: 'English'
+  actions:
+    create:
+      verb: 'create'
+      participle: 'created'
+      participle_fem: 'created'
+      future: 'will create'
+    update:
+      verb: 'update'
+      participle: 'updated'
+      participle_fem: 'updated'
+      future: 'will update'
+    delete:
+      verb: 'delete'
+      participle: 'deleted'
+      participle_fem: 'deleted'
+      future: 'will delete'
+    destroy:
+      verb: 'destroy'
+      participle: 'destroyed'
+      participle_fem: 'destroyed'
+      future: 'will destroy'
+  pundit:
+    not_authorized: 'You are not authorized to perform this action.'
+  flash:
+    close_alert: 'Close'
+    alert_title: 'Warning'
+    error_title: 'Error'
+    notice_title: 'Well done'
+  modals:
+    detail: 'Detail'
+    close: 'Close'

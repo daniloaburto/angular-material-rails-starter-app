@@ -1,0 +1,87 @@
+---
+es-CL:
+  header:
+    html_title: 'Aplicación Rails'
+    no_javascript: 'Es necesario que tengas activado Javascript en su navegador para utilizar todas las funciones de este sitio.'
+    activate_javascript: '¿Cómo activar Javascript?'
+    title: 'Hola mundo'
+  crud_views:
+    search: 'Buscar'
+    search_by_attribute: 'Buscar por %{attribute}'
+    search_resources: 'Buscar %{resources}'
+    list: 'Lista'
+    details: 'Detalles'
+    new: 'Nuevo'
+    new_fem: 'Nueva'
+    new_resource: 'Nuevo %{resource}'
+    new_resource_fem: 'Nueva %{resource}'
+    export: 'Exportar'
+    export_resources: 'Exportar %{resources}'
+    actions: 'Acciones'
+    edit_resource: 'Editar %{resource}'
+    delete_resource: 'Eliminar %{resource}'
+    edit: 'Editar'
+    delete: 'Eliminar'
+    delete_resource: 'Eliminar %{resource}'
+    are_you_sure: '¿Estás seguro?'
+    cancel: 'Cancelar'
+    back: 'Volver'
+    save: 'Guardar'
+    search: 'Buscar'
+    select_resource: 'Seleccionar %{resource}'
+    add_resource: 'Agregar %{resource}'
+    success_on_resource_action: 'El %{resource} ha sido %{action} con éxito.'
+    success_on_resource_action_fem: 'La %{resource} ha sido %{action} con éxito.'
+    not_evaluated: 'No evaluado'
+    photo: 'Imagen'
+    photos: 'Imágenes'
+    example: 'Ejemplo'
+    example_short: 'Ej'
+    role_undefined: 'Rol indefinido'
+    no_resources_found: 'No se encontraron %{resources}'
+  breadcrumb:
+    edit: 'Editar'
+    create: 'Crear'
+    details: 'Detalles'
+    index: 'Índice'
+    new_observation: 'Nueva observación'
+  top_menu:
+    user_profile: 'Perfil Usuario'
+    welcome: 'Bienvenido/a'
+    app_config: Configuración
+    sign_out: Salir
+    languages:
+      es_cl: 'Español'
+      pt_br: 'Portuguêss'
+      en_us: 'English'
+  actions:
+    create:
+      verb: 'crear'
+      participle: 'creado'
+      participle_fem: 'creada'
+      future: 'creará'
+    update:
+      verb: 'actualizar'
+      participle: 'actualizado'
+      participle_fem: 'actualizada'
+      future: 'actualizará'
+    delete:
+      verb: 'eliminar'
+      participle: 'eliminado'
+      participle_fem: 'eliminada'
+      future: 'eliminará'
+    destroy:
+      verb: 'destruir'
+      participle: 'destruido'
+      participle_fem: 'destruida'
+      future: 'destruirá'
+  pundit:
+    not_authorized: 'No está autorizado para realizar esta acción.'
+  flash:
+    close_alert: 'Cerrar'
+    alert_title: 'Atención'
+    error_title: 'Hay un problema'
+    notice_title: 'Excelente'
+  modals:
+    detail: 'Detalle'
+    close: 'Cerrar'

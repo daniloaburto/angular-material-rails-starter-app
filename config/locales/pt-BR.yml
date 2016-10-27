@@ -1,0 +1,87 @@
+---
+pt-BR:
+  header:
+    html_title: 'App Rails'
+    no_javascript: 'Para completa funcionalidade deste site é necessário habilitar o JavaScript no seu navegador.'
+    activate_javascript: '¿Cómo habilitar Javascript?'
+    title: 'Olá mundo'
+  crud_views:
+    search: 'Procurar'
+    search_by_attribute: 'Procurar por %{attribute}'
+    search_resources: 'Procurar %{resources}'
+    list: 'Lista'
+    details: 'Detalhes'
+    new: 'Novo'
+    new_fem: 'Nova'
+    new_model: 'Novo %{model}'
+    new_model_fem: 'Nova %{model}'
+    export: 'Exportar'
+    export_resources: 'Exportar %{resources}'
+    actions: 'Ações'
+    edit_resource: 'Editar %{resource}'
+    delete_resource: 'Eliminar %{resource}'
+    edit: 'Editar'
+    delete: 'Eliminar'
+    delete_model: 'Eliminar %{model}'
+    are_you_sure: '¿Voçê está seguro?'
+    cancel: 'Cancelar'
+    back: 'Voltar'
+    save: 'Salvar'
+    search: 'Procurar'
+    select_resource: 'Seleccione %{resource}'
+    add_resource: 'Adicionar %{resource}'
+    success_on_model_action: 'O %{resource} foi %{action} com sucesso.'
+    success_on_model_action_fem: 'A %{resource} foi %{action} com sucesso.'
+    not_evaluated: 'Não avaliado'
+    photo: 'Imagem'
+    photos: 'Imagens'
+    example: 'Exemplo'
+    example_short: 'Ex'
+    role_undefined: 'Role indefinido'
+    nothing_found: 'Não há %{resources}'
+  breadcrumb:
+    edit: 'Editar'
+    create: 'Criar'
+    details: 'Detalhes'
+    index: 'Índice'
+    new_observation: 'Nova observação'
+  top_menu:
+    user_profile: 'Perfil Usuário'
+    welcome: 'Bem-vindo/a'
+    app_config: Configuração
+    sign_out: Sair
+    languages:
+      es_cl: 'Español'
+      pt_br: 'Portuguêss'
+      en_us: 'English'
+  actions:
+    create:
+      verb: 'criar'
+      participle: 'criado'
+      participle_fem: 'criada'
+      future: 'criará'
+    update:
+      verb: 'atualizar'
+      participle: 'atualizado'
+      participle_fem: 'atualizada'
+      future: 'atualizará'
+    delete:
+      verb: 'eliminar'
+      participle: 'eliminado'
+      participle_fem: 'eliminada'
+      future: 'eliminará'
+    destroy:
+      verb: 'destruir'
+      participle: 'destruído'
+      participle_fem: 'destruída'
+      future: 'destruirá'
+  pundit:
+    not_authorized: 'Você não está autorizado a realizar esta ação.'
+  flash:
+    close_alert: 'Fechar'
+    alert_title: 'Atenção'
+    error_title: 'Há um problema'
+    notice_title: 'Excelente'
+  modals:
+    detail: 'Detalhes'
+    close: 'Fechar'

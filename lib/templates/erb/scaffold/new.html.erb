@@ -1,0 +1,16 @@
+<%%= show_error_messages!(@<%= singular_table_name %>) %>
+
+<div class="container">
+  <ol class="breadcrumb">
+    <li>
+      <%% if policy(<%= class_name %>).index? %>
+        <%%= link_to <%= class_name %>.model_name.human.pluralize, <%= plural_table_name %>_path %>
+      <%% else %>
+        <%%= <%= class_name %>.model_name.human.pluralize %>
+      <%% end -%>
+    </li>
+    <li class="active"><%%= t('new', scope: :breadcrumb) %></li>
+  </ol>
+</div>
+
+<%%= render 'form' %>

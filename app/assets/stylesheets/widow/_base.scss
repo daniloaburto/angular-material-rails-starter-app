@@ -1,0 +1,31 @@
+// General
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  background-color: transparent;
+  padding-top: 80px;;
+}
+
+a {
+  @include transition(all 0.2s);
+}
+
+// Warning
+.warning p {
+  text-align: center;
+  background: #ffffbb;
+  border: 1px solid #ffcc00;
+  padding: 10px;
+}
+
+.container-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
