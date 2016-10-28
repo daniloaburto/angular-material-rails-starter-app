@@ -14,16 +14,24 @@ ADD Gemfile /tmp/bundle/
 ADD Gemfile.lock /tmp/bundle/
 RUN bundle install --jobs 4 --retry 6 --deployment --without development test
 
+# Install bower
+RUN npm -g install bower@1.7.9
+
+# Run bower in a cache efficient way
+WORKDIR /home/app/webapp/
+ADD .bowerrc /home/app/webapp/
+ADD bower.json /home/app/webapp/
+RUN bower install --allow-root
+
 # Config nginx
 RUN rm -f /etc/service/nginx/down && \
     rm /etc/nginx/sites-enabled/default
 ADD nginx.conf /etc/nginx/sites-enabled/webapp.conf
 
 # Build web application
-WORKDIR /home/app/webapp/
 ADD . /home/app/webapp/
 VOLUME /home/app/webapp/public/system
-# RUN bundle exec rake assets:precompile
+RUN bundle exec rake assets:precompile
 
 # Change /home/app/webapp owner to user app
 RUN sudo chown -R app:app /home/app/webapp/

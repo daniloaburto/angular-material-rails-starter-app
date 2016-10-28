@@ -27,6 +27,9 @@ module RailsApp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # Adding bower's directory
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+
     # Change default Devise layout
     config.to_prepare do
       Devise::SessionsController.layout "application-no-login.html.erb"

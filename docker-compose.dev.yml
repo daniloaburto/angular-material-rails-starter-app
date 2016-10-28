@@ -19,6 +19,7 @@ rails:
    - "3000:3000"
   volumes:
    - .:/home/app/webapp
+   - /home/app/webapp/vendor/assets
    - /home/app/webapp/public/assets
   links:
    - database

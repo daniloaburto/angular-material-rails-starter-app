@@ -3,8 +3,8 @@ database:
   environment:
     POSTGRES_USER: ${POSTGRES_USER}
     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  volumes:
-    - /opt/app-postgresql/data:/var/lib/postgresql/data
+  # volumes:
+    # - /opt/app-postgresql/data:/var/lib/postgresql/data
 
 redis:
   image: redis:3.0.5
@@ -14,8 +14,8 @@ rails:
   dockerfile: Dockerfile
   ports:
    - "80:80"
-  volumes:
-   - /home/app/webapp/public/assets
+  # volumes:
+  #  - /home/app/webapp/public/assets
   links:
    - database
    - redis
