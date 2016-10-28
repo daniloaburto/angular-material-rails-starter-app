@@ -58,11 +58,6 @@ gem 'sdoc', '0.4.1', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '6.0.2' # Muy útil :D
-end
-
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '2.2.1'
@@ -82,11 +77,17 @@ group :development do
   # Para que los GET de los assets no salgan en la consola de linux
   gem 'quiet_assets', '1.1.0'
 
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', '6.0.2'
+
   # Pry is a powerful alternative to the standard IRB shell for Ruby
   gem 'pry', '0.10.4'
 
   # Replace rails console with pry
   # gem 'pry-rails', '0.3.4'
+
+  # Step-by-step debugging and stack navigation in Pry
+  gem 'pry-byebug'
 end
 
 # Authentication solution for Rails based on Warden
