@@ -79,3 +79,7 @@ remote.sh
 
 # Phusion Passenger
 .passenger
+
+
+# Docker
+.env

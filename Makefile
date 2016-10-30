@@ -78,4 +78,4 @@ enter:
 s: server
 server:
 	$(eval DOCKER_HOST_IP := $(shell /sbin/ip route|awk '/default/ { print $$3 }'))
-	TRUSTED_IP=$(DOCKER_HOST_IP) RAILS_ENV=$(ENV) rails s -b 0.0.0.0 -p 3000
+	TRUSTED_IP=$(DOCKER_HOST_IP) RAILS_ENV=$(ENV) bundle exec rails s -b 0.0.0.0 -p 3000

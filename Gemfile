@@ -16,29 +16,18 @@ gem 'sass-rails', '5.0.4'
 # Autoprefixer for css
 gem 'autoprefixer-rails', '6.0.3'
 
-# Sass-powered version of Bootstrap
-gem 'bootstrap-sass', '3.3.5.1'
-
 # Font-Awesome Sass gem for use in Ruby/Rails projects
-gem 'font-awesome-sass', '4.4.0'
+# <%= icon... %>
+gem 'font-awesome-sass', '4.7.0'
 
 # Integrates the Twitter Bootstrap pagination component with will_paginate
 gem 'will_paginate-bootstrap', '1.0.1'
 
-# Rails plugin for creating and managing a breadcrumb navigation.
-gem 'breadcrumbs_on_rails', '2.3.1'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.7.2'
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '4.1.0'
-
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', '0.12.2', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails', '4.0.5'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -78,7 +67,7 @@ group :development do
   gem 'quiet_assets', '1.1.0'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '6.0.2'
+  gem 'byebug', '9.0.6'
 
   # Pry is a powerful alternative to the standard IRB shell for Ruby
   gem 'pry', '0.10.4'
@@ -87,7 +76,7 @@ group :development do
   # gem 'pry-rails', '0.3.4'
 
   # Step-by-step debugging and stack navigation in Pry
-  gem 'pry-byebug'
+  gem 'pry-byebug', '3.4.0'
 end
 
 # Authentication solution for Rails based on Warden

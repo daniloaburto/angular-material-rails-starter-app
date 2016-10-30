@@ -56,10 +56,11 @@ Para levantar los servicios:
   - Pry
   - Sidekiq
   - I18N (es-CL, pt-BR, en)
+  - Bower
 
 ## TODO:
   - Backup automático de BD
   - Agregar ActiveAdmin
   - Integración con Slack
-  - Bower
   - Angular o React
+  - Agregar linters

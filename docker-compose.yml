@@ -1,23 +1,31 @@
-database:
-  image: postgres:9.3
-  environment:
-    POSTGRES_USER: ${POSTGRES_USER}
-    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-  # volumes:
-    # - /opt/app-postgresql/data:/var/lib/postgresql/data
+version: '2'
+services:
+  database:
+    image: postgres:9.3
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
-redis:
-  image: redis:3.0.5
+  redis:
+    image: redis:3.0.5
 
-rails:
-  build: .
-  dockerfile: Dockerfile
-  ports:
-   - "80:80"
-  # volumes:
-  #  - /home/app/webapp/public/assets
-  links:
-   - database
-   - redis
-  environment:
-    PASSENGER_APP_ENV: production
+  rails:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+     - "80:80"
+    volumes:
+      - bundle-data:/home/app/webapp/vendor/bundle
+      - bower-data:/home/app/webapp/vendor/assets
+    links:
+     - database
+     - redis
+    environment:
+      PASSENGER_APP_ENV: production
+
+volumes:
+  bundle-data:
+    driver: local
+  bower-data:
+    driver: local

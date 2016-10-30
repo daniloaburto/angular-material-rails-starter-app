@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
   host: database
-  username:  <%= ENV['DATABASE_ENV_POSTGRES_USER'] %>
-  password: <%= ENV['DATABASE_ENV_POSTGRES_PASSWORD'] %>
+  username:  <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 development:
   <<: *default
