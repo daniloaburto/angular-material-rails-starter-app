@@ -5,7 +5,7 @@ services:
     image: postgres:9.3
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
      - "5432:5432"
     volumes:
@@ -29,10 +29,29 @@ services:
      - database
      - redis
     environment:
+      POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
       POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PASSENGER_APP_ENV: development
       TERM: xterm-256color
+
+  # sidekiq:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.sidekiq
+  #   command: /sbin/my_init -- bundle exec sidekiq -e ${SIDEKIQ_ENVIRONMENT} -c ${SIDEKIQ_CONCURRENCY}
+  #   links:
+  #     - database
+  #     - redis
+  #
+  # ops:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.ops
+  #   environment:
+  #     POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
+  #     POSTGRES_USER: ${POSTGRES_USER}
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
 volumes:
   bundle-data:
