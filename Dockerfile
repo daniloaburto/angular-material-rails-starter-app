@@ -8,13 +8,17 @@ ENV BUNDLE_PATH /home/app/webapp/vendor/bundle
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-# Install gems in a cache efficient way
+# Workdir for bundle and bower
 WORKDIR /home/app/webapp/
+
+# Install gems in a cache efficient way
 ADD Gemfile /home/app/webapp/
 ADD Gemfile.lock /home/app/webapp/
 RUN bundle install --jobs 4 --retry 6 --deployment --without development test
 
-# Install bower
+# Install bower in a cache efficient way
+ADD .bowerrc /home/app/webapp/
+ADD bower.json /home/app/webapp/
 RUN npm -g install bower@1.7.9
 RUN bower install --allow-root
 
