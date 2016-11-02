@@ -1,4 +1,4 @@
-FROM daniloaburto/rails-seed:latest
+FROM daniloaburto/rails-seed-base:latest
 
 # Set correct environment variables.
 ENV HOME /root

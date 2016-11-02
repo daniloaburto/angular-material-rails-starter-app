@@ -46,11 +46,7 @@ Una vez finalizado el scaffolding se puede visitar algunos de los recursos cread
 
 La aplicación también puede ser desplegada en producción a través de contenedores Docker. Para ello se requiere instalar [Docker en linux](https://www.google.com/search?q=install+docker+linux).
 
-Para levantar los servicios:
-
-  ```
-  $ POSTGRES_USER=<user> POSTGRES_PASSWORD=<pass> docker-compose up -d
-  ```
+COMPLETAR!
 
 ## Características:
   - Entorno de desarrollo y producción usando docker
