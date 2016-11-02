@@ -12,8 +12,8 @@ CMD ["/sbin/my_init"]
 # RUN gem install backup -v 4.3.1
 
 # Add init scripts
-RUN cp /home/app/webapp/docker/services/ops/my_init.d/*prod* /etc/my_init.d/
-RUN chmod +x /etc/my_init.d/*prod*
+# RUN cp /home/app/webapp/docker/services/ops/my_init.d/*prod* /etc/my_init.d/
+# RUN chmod +x /etc/my_init.d/*prod*
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
