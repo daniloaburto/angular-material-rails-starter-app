@@ -28,7 +28,13 @@ Finalmente, ya dentro del contenedor para levantar la aplicación rails:
   $ make server
   ```
 
-Para probar el scaffolding, ingresar en otra pestaña al contenedor y ejecutar el comando redo:
+Para configurar el proyecto por primera vez, entrar a un contenedor rails y ejecutar:
+
+  ```
+  $ make init
+  ```
+
+Para probar el scaffolding, ingresar a un contenedor rails y ejecutar:
 
   ```
   $ make redo

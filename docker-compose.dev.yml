@@ -7,18 +7,18 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-     - "5432:5432"
+      - "5432:5432"
     volumes:
       - /var/lib/postgresql/data
 
   redis:
     image: redis:3.0.5
 
-  rails:
-    container_name: rails_seed_app
+  app:
+    container_name: ${APP_CONTAINER_NAME}
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: docker/services/app/docker-compose/Dockerfile.dev
     ports:
      - "3000:3000"
     volumes:
@@ -26,32 +26,41 @@ services:
      - bundle-data:/home/app/webapp/vendor/bundle
      - bower-data:/home/app/webapp/vendor/assets
     links:
-     - database
-     - redis
+      - database
+      - redis
+    depends_on:
+      - ops
     environment:
       POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      PASSENGER_APP_ENV: development
+      PASSENGER_APP_ENV: ${APP_ENV}
       TERM: xterm-256color
 
-  # sidekiq:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.sidekiq
-  #   command: /sbin/my_init -- bundle exec sidekiq -e ${SIDEKIQ_ENVIRONMENT} -c ${SIDEKIQ_CONCURRENCY}
-  #   links:
-  #     - database
-  #     - redis
-  #
-  # ops:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.ops
-  #   environment:
-  #     POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
-  #     POSTGRES_USER: ${POSTGRES_USER}
-  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  sidekiq:
+    build:
+      context: .
+      dockerfile: docker/services/sidekiq/docker-compose/Dockerfile.dev
+    # command: /sbin/my_init -- bundle exec sidekiq -e ${SIDEKIQ_ENV} -c ${SIDEKIQ_CONCURRENCY}
+    volumes:
+     - bundle-data:/home/app/webapp/vendor/bundle
+    links:
+      - database
+      - redis
+    depends_on:
+      - ops
+
+  ops:
+    build:
+      context: .
+      dockerfile: docker/services/ops/docker-compose/Dockerfile.dev
+    environment:
+      POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - bundle-data:/home/app/webapp/vendor/bundle
+      - bower-data:/home/app/webapp/vendor/assets
 
 volumes:
   bundle-data:

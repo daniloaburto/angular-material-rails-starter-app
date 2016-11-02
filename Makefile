@@ -1,11 +1,16 @@
-ENV := development
-DOCKERFILE := docker-compose.dev.yml
-DOCKER_CONTAINER_NAME := rails_seed_app
+# Include environment variables from .env
+include .env
+
+init: init_env create seed
+
+init_env:
+	cp .env.dev.sample .env
+
 #
 clean_db:
-	rake db:drop:all RAILS_ENV=$(ENV);		# Drop DB
-	rake db:create RAILS_ENV=$(ENV);			# Create DB
-	rake db:migrate RAILS_ENV=$(ENV);			# Create DB tables and relations - Used for version control
+	rake db:drop:all RAILS_ENV=$(APP_ENV);	# Drop DB
+	rake db:create RAILS_ENV=$(APP_ENV);		# Create DB
+	rake db:migrate RAILS_ENV=$(APP_ENV);		# Create DB tables and relations - Used for version control
 
 # Models
 scaffold_models:
@@ -60,22 +65,27 @@ redo: destroy scaffold create seed
 
 # Docker (dev only)
 build:
-	docker-compose -f $(DOCKERFILE) build
+	docker-compose -f $(COMPOSE_FILE) build
 
 run:
-	docker-compose -f $(DOCKERFILE) up
+	docker-compose -f $(COMPOSE_FILE) up
 
 start:
-	docker-compose -f $(DOCKERFILE) up -d
+	docker-compose -f $(COMPOSE_FILE) up -d
 
 stop:
-	docker-compose -f $(DOCKERFILE) stop
+	docker-compose -f $(COMPOSE_FILE) stop
 
 enter:
-	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/bash
+	docker exec -it $(APP_CONTAINER_NAME) /bin/bash
 
 # Inside docker's container
 s: server
 server:
 	$(eval DOCKER_HOST_IP := $(shell /sbin/ip route|awk '/default/ { print $$3 }'))
-	TRUSTED_IP=$(DOCKER_HOST_IP) RAILS_ENV=$(ENV) bundle exec rails s -b 0.0.0.0 -p 3000
+	TRUSTED_IP=$(DOCKER_HOST_IP) RAILS_ENV=$(APP_ENV) bundle exec rails s -b 0.0.0.0 -p 3000
+
+sq: sidekiq
+sidekiq:
+	$(eval DOCKER_HOST_IP := $(shell /sbin/ip route|awk '/default/ { print $$3 }'))
+	TRUSTED_IP=$(DOCKER_HOST_IP) RAILS_ENV=$(APP_ENV) bundle exec sidekiq -e $(SIDEKIQ_ENV) -c $(SIDEKIQ_CONCURRENCY)

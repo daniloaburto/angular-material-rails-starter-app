@@ -10,9 +10,9 @@ services:
   redis:
     image: redis:3.0.5
 
-  rails:
+  app:
     build:
-      context: .
+      context: docker/services/app
       dockerfile: Dockerfile
     ports:
      - "80:80"
@@ -22,32 +22,41 @@ services:
     links:
      - database
      - redis
+    depends_on:
+      - ops
     environment:
-      PASSENGER_APP_ENV: production
+      PASSENGER_APP_ENV: ${APP_ENV}
       POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
-  # sidekiq:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.sidekiq
-  #   command: /sbin/my_init -- bundle exec sidekiq -e ${SIDEKIQ_ENVIRONMENT} -c ${SIDEKIQ_CONCURRENCY}
-  #   links:
-  #     - database
-  #     - redis
-  #
-  # ops:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.ops
-  #   links:
-  #    - database
-  #    - redis
-  #   environment:
-  #     POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
-  #     POSTGRES_USER: ${POSTGRES_USER}
-  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  sidekiq:
+    build:
+      context: docker/services/sidekiq
+      dockerfile: Dockerfile
+    command: /sbin/my_init -- bundle exec sidekiq -e ${SIDEKIQ_ENV} -c ${SIDEKIQ_CONCURRENCY}
+    volumes:
+      - bundle-data:/home/app/webapp/vendor/bundle
+    links:
+      - database
+      - redis
+    depends_on:
+      - ops
+
+  ops:
+    build:
+      context: docker/services/ops
+      dockerfile: Dockerfile
+    links:
+      - database
+      - redis
+    environment:
+      POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - bundle-data:/home/app/webapp/vendor/bundle
+      - bower-data:/home/app/webapp/vendor/assets
 
 volumes:
   bundle-data:
