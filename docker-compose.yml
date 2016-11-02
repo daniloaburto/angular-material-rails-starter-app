@@ -11,9 +11,7 @@ services:
     image: redis:3.0.5
 
   app:
-    build:
-      context: docker/services/app
-      dockerfile: Dockerfile
+    image: daniloaburto/rails-seed-services:app-latest
     ports:
      - "80:80"
     volumes:
@@ -31,9 +29,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   sidekiq:
-    build:
-      context: docker/services/sidekiq
-      dockerfile: Dockerfile
+    image: daniloaburto/rails-seed-services:sidekiq-latest
     command: /sbin/my_init -- bundle exec sidekiq -e ${SIDEKIQ_ENV} -c ${SIDEKIQ_CONCURRENCY}
     volumes:
       - bundle-data:/home/app/webapp/vendor/bundle
@@ -44,9 +40,7 @@ services:
       - ops
 
   ops:
-    build:
-      context: docker/services/ops
-      dockerfile: Dockerfile
+    image: daniloaburto/rails-seed-services:ops-latest
     links:
       - database
       - redis
