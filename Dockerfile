@@ -16,6 +16,7 @@ RUN bundle install --jobs 4 --retry 6 --deployment --without development test
 
 # Install bower
 RUN npm -g install bower@1.7.9
+RUN bower install --allow-root
 
 # Add files
 ADD . /home/app/webapp/

@@ -15,8 +15,8 @@ CMD ["/sbin/my_init"]
 ADD . /home/app/webapp/
 
 # Add init scripts
-RUN cp /home/app/webapp/docker/services/ops/my_init.d/*prod* /etc/my_init.d/
-RUN chmod +x /etc/my_init.d/*prod*
+# RUN cp /home/app/webapp/docker/services/ops/my_init.d/*prod* /etc/my_init.d/
+# RUN chmod +x /etc/my_init.d/*prod*
 
 # Change /home/app/webapp owner to user app
 RUN sudo chown -R app:app /home/app/webapp/
