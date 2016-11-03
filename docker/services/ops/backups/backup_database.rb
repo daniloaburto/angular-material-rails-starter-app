@@ -1,13 +1,13 @@
 ##
-# Backup Generated: rails_seed
+# Backup Generated: backup_database
 # Once configured, you can run the backup with the following command:
 #
-# $ backup perform -t rails_seed [-c <path_to_configuration_file>]
+# $ backup perform -t backup_database [-c <path_to_configuration_file>]
 #
 # For more information about Backup's components, see the documentation at:
 # http://meskyanichi.github.io/backup
 #
-Model.new(:rails_seed, 'Description for rails_seed') do
+Model.new(:backup_database, 'Application database (PostgreSQL)') do
 
   ##
   # MongoDB [Database]
@@ -32,14 +32,17 @@ Model.new(:rails_seed, 'Description for rails_seed') do
     # To dump all databases, set `db.name = :all` (or leave blank)
     db.name               = ENV['POSTGRES_DB_NAME']
     db.username           = ENV['POSTGRES_USER']
-    db.password           = ENV['POSTGRES_PASS']
+    db.password           = ENV['POSTGRES_PASSWORD']
     db.host               = "database"
     db.port               = 5432
-    db.socket             = "/tmp/pg.sock"
+    # db.socket             = "/tmp/pg.sock"
+
     # When dumping all databases, `skip_tables` and `only_tables` are ignored.
     # db.skip_tables        = ["skip", "these", "tables"]
     # db.only_tables        = ["only", "these", "tables"]
-    db.additional_options = ["-xc", "-E=utf8"]
+
+    # db.additional_options = ["-xc", "-E=utf8"]
+    db.additional_options = ["--compress=6", "--no-owner", "--create", "--clean"]
   end
 
   ##
@@ -127,16 +130,22 @@ Model.new(:rails_seed, 'Description for rails_seed') do
   #
   compress_with Gzip
 
+  # to customize settings
+  compress_with Gzip do |compression|
+    compression.level = 6
+    # compression.rsyncable = true
+  end
+
   ##
   # Mail [Notifier]
   #
   # The default delivery method for Mail Notifiers is 'SMTP'.
   # See the documentation for other delivery options.
   #
-  notify_by Mail do |mail|
-    mail.on_success           = true
-    mail.on_warning           = true
-    mail.on_failure           = true
+  # notify_by Mail do |mail|
+    # mail.on_success           = true
+    # mail.on_warning           = true
+    # mail.on_failure           = true
 
     # mail.from                 = "sender@email.com"
     # mail.to                   = "receiver@email.com"
@@ -158,6 +167,6 @@ Model.new(:rails_seed, 'Description for rails_seed') do
     # mail.authentication       = ENV['BACKUP_NOTIFIER_AUTHENTICATION']
     # mail.encryption           = ENV['BACKUP_NOTIFIER_MAIL_ENCRYPTION']
 
-  end
+  # end
 
 end

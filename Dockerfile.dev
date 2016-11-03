@@ -8,21 +8,24 @@ ENV BUNDLE_PATH /home/app/webapp/vendor/bundle
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-# Build web application
+# Workdir
+WORKDIR /home/app/webapp/
+
+# PG Client for ops container
+RUN apt-get update && apt-get install -y postgresql-client-9.3
+
+# Backups for ops container
+RUN gem install backup -v 4.2.3
+
+# Add files
 ADD . /home/app/webapp/
-
-# Add init scripts
-# RUN cp /home/app/webapp/docker/services/app/my_init.d/*prod* /etc/my_init.d/
-# RUN chmod +x /etc/my_init.d/*prod*
-
-# Config nginx
-RUN rm -f /etc/service/nginx/down && \
-    rm /etc/nginx/sites-enabled/default && \
-    cp /home/app/webapp/docker/services/app/nginx/app.conf /etc/nginx/sites-enabled/
 
 # Change /home/app/webapp owner to user app
 RUN sudo chown -R app:app /home/app/webapp/
-WORKDIR /home/app/webapp/
+
+# Add init script
+ADD docker/my_init.d/*.sh /etc/my_init.d/
+RUN chmod +x /etc/my_init.d/*.sh
 
 # Clean up APT when done
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /var/tmp/*

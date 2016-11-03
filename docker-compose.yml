@@ -11,36 +11,36 @@ services:
     image: redis:3.0.5
 
   app:
-    image: daniloaburto/rails-seed-services:app-latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
     ports:
      - "80:80"
-    volumes:
-      - bundle-data:/home/app/webapp/vendor/bundle
-      - bower-data:/home/app/webapp/vendor/assets
     links:
      - database
      - redis
-    depends_on:
-      - ops
     environment:
-      PASSENGER_APP_ENV: ${APP_ENV}
+      PASSENGER_APP_ENV: ${ENV}
       POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   sidekiq:
-    image: daniloaburto/rails-seed-services:sidekiq-latest
-    command: /sbin/my_init -- bundle exec sidekiq -e ${SIDEKIQ_ENV} -c ${SIDEKIQ_CONCURRENCY}
-    volumes:
-      - bundle-data:/home/app/webapp/vendor/bundle
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /sbin/my_init -- bundle exec sidekiq -e ${ENV} -c ${SIDEKIQ_CONCURRENCY}
+    restart: always
     links:
       - database
       - redis
-    depends_on:
-      - ops
 
   ops:
-    image: daniloaburto/rails-seed-services:ops-latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
     links:
       - database
       - redis
@@ -48,12 +48,3 @@ services:
       POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    volumes:
-      - bundle-data:/home/app/webapp/vendor/bundle
-      - bower-data:/home/app/webapp/vendor/assets
-
-volumes:
-  bundle-data:
-    driver: local
-  bower-data:
-    driver: local

@@ -11,6 +11,12 @@ CMD ["/sbin/my_init"]
 # Workdir for bundle and bower
 WORKDIR /home/app/webapp/
 
+# PG Client for ops container
+RUN apt-get update && apt-get install -y postgresql-client-9.3
+
+# Backups for ops container
+RUN gem install backup -v 4.2.3
+
 # Install gems in a cache efficient way
 ADD Gemfile /home/app/webapp/
 ADD Gemfile.lock /home/app/webapp/
@@ -27,7 +33,10 @@ ADD . /home/app/webapp/
 
 # Change /home/app/webapp owner to user app
 RUN sudo chown -R app:app /home/app/webapp/
-WORKDIR /home/app/webapp/
+
+# Add init script
+ADD docker/my_init.d/*.sh /etc/my_init.d/
+RUN chmod +x /etc/my_init.d/*.sh
 
 # Clean up APT when done
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /var/tmp/*

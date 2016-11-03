@@ -1,2 +1,2 @@
 # Backup data
-05 00 * * * /bin/bash -l backup perform --trigger rails_seed
+21 35 * * * /bin/bash -l -c "backup perform --trigger backup_database"
