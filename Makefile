@@ -79,6 +79,12 @@ stop:
 enter:
 	docker exec -it $(APP_CONTAINER_NAME) /bin/bash
 
+enter-sidekiq:
+	docker exec -it $(OPS_CONTAINER_NAME) /bin/bash
+
+enter-ops:
+	docker exec -it $(OPS_CONTAINER_NAME) /bin/bash
+
 # Inside docker's container
 s: server
 server:

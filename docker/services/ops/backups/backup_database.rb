@@ -10,22 +10,6 @@
 Model.new(:backup_database, 'Application database (PostgreSQL)') do
 
   ##
-  # MongoDB [Database]
-  #
-  # database MongoDB do |db|
-  #   db.name               = "my_database_name"
-  #   db.username           = "my_username"
-  #   db.password           = "my_password"
-  #   db.host               = "localhost"
-  #   db.port               = 5432
-  #   db.ipv6               = false
-  #   db.only_collections   = ["only", "these", "collections"]
-  #   db.additional_options = []
-  #   db.lock               = false
-  #   db.oplog              = false
-  # end
-
-  ##
   # PostgreSQL [Database]
   #
   database PostgreSQL do |db|
@@ -136,37 +120,34 @@ Model.new(:backup_database, 'Application database (PostgreSQL)') do
     # compression.rsyncable = true
   end
 
-  ##
-  # Mail [Notifier]
-  #
-  # The default delivery method for Mail Notifiers is 'SMTP'.
-  # See the documentation for other delivery options.
-  #
-  # notify_by Mail do |mail|
-    # mail.on_success           = true
-    # mail.on_warning           = true
-    # mail.on_failure           = true
+  unless ENV['SLACK_WEBHOOK_URL'].to_s.empty?
+    notify_by Slack do |slack|
+      slack.on_success = false
+      slack.on_warning = true
+      slack.on_failure = true
 
-    # mail.from                 = "sender@email.com"
-    # mail.to                   = "receiver@email.com"
-    # mail.address              = "smtp.gmail.com"
-    # mail.port                 = 587
-    # mail.domain               = "your.host.name"
-    # mail.user_name            = "sender@email.com"
-    # mail.password             = "my_password"
-    # mail.authentication       = "plain"
-    # mail.encryption           = :starttls
-    #
-    # mail.from                 = ENV['BACKUP_NOTIFIER_FROM']
-    # mail.to                   = ENV['BACKUP_NOTIFIER_TO']
-    # mail.address              = ENV['BACKUP_NOTIFIER_ADDRESS']
-    # mail.port                 = ENV['BACKUP_NOTIFIER_PORT']
-    # mail.domain               = ENV['BACKUP_NOTIFIER_DOMAIN']
-    # mail.user_name            = ENV['BACKUP_NOTIFIER_USER']
-    # mail.password             = ENV['BACKUP_NOTIFIER_PASSWORD']
-    # mail.authentication       = ENV['BACKUP_NOTIFIER_AUTHENTICATION']
-    # mail.encryption           = ENV['BACKUP_NOTIFIER_MAIL_ENCRYPTION']
+      # The integration token
+      slack.webhook_url = ENV['SLACK_WEBHOOK_URL']
 
-  # end
+      ##
+      # Optional
+      #
+      # The channel to which messages will be sent
+      slack.channel = ENV['SLACK_CHANNEL']
+      #
+      # The username to display along with the notification
+      # slack.username = 'my_username'
+      #
+      # The emoji icon to use for notifications.
+      # See http://www.emoji-cheat-sheet.com for a list of icons.
+      # slack.icon_emoji = ':ghost:'
+      #
+      # Change default notifier message.
+      # See https://github.com/backup/backup/pull/698 for more information.
+      # slack.message = lambda do |model, data|
+      #   "[#{data[:status][:message]}] #{model.label} (#{model.trigger})"
+      # end
+    end
+  end
 
 end

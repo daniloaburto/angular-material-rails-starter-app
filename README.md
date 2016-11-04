@@ -59,9 +59,9 @@ COMPLETAR!
   - Sidekiq
   - I18N (es-CL, pt-BR, en)
   - Bower
+  - Backup automático de BD (notificaciones via slack)
 
 ## TODO:
-  - Backup automático de BD
   - Agregar ActiveAdmin
   - Integración con Slack
   - Angular o React

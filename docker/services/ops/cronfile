@@ -1,2 +1,2 @@
 # Backup data
-21 35 * * * /bin/bash -l -c "backup perform --trigger backup_database"
+30 01 * * * /bin/bash -l -c 'backup perform --trigger backup_database'

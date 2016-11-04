@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y postgresql-client-9.3
 # Backups for ops container
 RUN gem install backup -v 4.2.3
 
+# Install bower globally
+RUN npm -g install bower@1.7.9
+
 # Add files
 ADD . /home/app/webapp/
 

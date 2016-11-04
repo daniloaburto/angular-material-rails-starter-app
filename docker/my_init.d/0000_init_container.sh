@@ -5,9 +5,9 @@ enable_nginx () {
   # Enable Nginx
   if [ ! -f /etc/nginx/sites-enabled/app.conf ]; then
       echo "Enabling nginx..."
-      rm -f /etc/service/nginx/down && \
-          rm /etc/nginx/sites-enabled/default && \
-          cp /home/app/webapp/docker/services/app/nginx/app.conf /etc/nginx/sites-enabled/
+      rm -f /etc/service/nginx/down
+      rm /etc/nginx/sites-enabled/default
+      cp /home/app/webapp/docker/services/app/nginx/app.conf /etc/nginx/sites-enabled/
   fi
 }
 
@@ -18,9 +18,6 @@ install_ruby_gems () {
 }
 
 install_bower () {
-  # Install bower
-  echo "Installing bower globally..."
-  npm -g install bower@1.7.9
 
   echo "Installing bower packages..."
   cd /home/app/webapp && bower install --allow-root
@@ -38,12 +35,10 @@ setup_backups () {
     mkdir -p $HOME/Backup/models/
     cp /home/app/webapp/docker/services/ops/backups/backup_database.rb $HOME/Backup/models/
     cp /home/app/webapp/docker/services/ops/backups/config.rb $HOME/Backup/
-  fi
 
-  # Setup cron for periodic tasks
-  if [ ! -f $HOME/cronfile ]; then
-    cp /home/app/webapp/docker/services/ops/cronfile $HOME/
-    crontab $HOME/cronfile
+    # Setup cron for periodic tasks
+    crontab /home/app/webapp/docker/services/ops/cronfile
+    echo "crontab's return code: $?"
   fi
 }
 
@@ -103,6 +98,8 @@ then
     echo "#                              #"
     echo "#                              #"
     echo "################################"
+    echo "User: $USER"
+    echo "Home: $HOME"
   else
       echo "Unknown service"
   fi
