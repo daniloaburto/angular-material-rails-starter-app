@@ -13,19 +13,15 @@ Para construir la imagen docker del proyecto ejecutar:
 Luego, para levantar los contenedores se debe ejecutar el siguiente comando:
 
   ```
-  $ make run
+  $ make run # también es posible usar 'make start' para ejecutar en background
   ```
 
-Para entrar al contenedor de la aplicación Rails, ejecutar en otra pestaña:
+Una vez que los contenedores están ejecutándose, es posible encontrar a cualquiera de ellos con alguno de los siguientes comandos (ejecutar en otra pestaña):
 
   ```
-  $ make enter
-  ```
-
-Finalmente, ya dentro del contenedor para levantar la aplicación rails:
-
-  ```
-  $ make server
+  $ make enter # ingresa al contenedor Rails
+  $ make enter-sidekiq # ingresa al contenedor Sidekiq
+  $ make enter-ops # ingresa al contenedor de DevOps
   ```
 
 Para configurar el proyecto por primera vez, entrar a un contenedor rails y ejecutar:
@@ -34,7 +30,13 @@ Para configurar el proyecto por primera vez, entrar a un contenedor rails y ejec
   $ make init
   ```
 
-Para probar el scaffolding, ingresar a un contenedor rails y ejecutar:
+Para levantar el servidor de desarrollo Rails se debe entrar en dicho contenedor y ejecutar:
+
+  ```
+  $ make server # o 'make s'
+  ```
+
+Para probar el scaffolding, dentro del contenedor rails ejecutar:
 
   ```
   $ make redo
