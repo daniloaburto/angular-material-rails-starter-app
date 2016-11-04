@@ -11,39 +11,39 @@ clean_db:
 
 # Models
 scaffold_models:
-	rails g scaffold Country \
+	bundle exec rails g scaffold Country \
 		name:string{255};
 
-	rails g scaffold User \
+	bundle exec rails g scaffold User \
 		first_name:string{255} \
 		last_name:string{255} \
 		email:string{255} \
 		enabled:boolean \
 		role:integer{4};
 
-	rails g scaffold Parameter \
+	bundle exec rails g scaffold Parameter \
 		key:string{255} \
 		value:string{255};
 
 destroy_models:
-	rails d scaffold Country;
-	rails d scaffold User;
-	rails d scaffold Parameter;
+	bundle exec rails d scaffold Country;
+	bundle exec rails d scaffold User;
+	bundle exec rails d scaffold Parameter;
 
 # Devise
 enable_devise:
-	rails generate devise User
+	bundle exec rails generate devise User
 
 # Policies
 scaffold_policies:
-	rails g pundit:policy country;
-	rails g pundit:policy user;
-	rails g pundit:policy parameter;
+	bundle exec rails g pundit:policy country;
+	bundle exec rails g pundit:policy user;
+	bundle exec rails g pundit:policy parameter;
 
 destroy_policies:
-	rails d pundit:policy country;
-	rails d pundit:policy user;
-	rails d pundit:policy parameter;
+	bundle exec rails d pundit:policy country;
+	bundle exec rails d pundit:policy user;
+	bundle exec rails d pundit:policy parameter;
 
 # Database
 create:
