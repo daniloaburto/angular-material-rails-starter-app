@@ -4,6 +4,12 @@
 
 El entorno de desarrollo está aislado y autocontenido por medio de contenedores, por lo cual es necesario instalar [Docker](https://www.google.com/search?q=install+docker+os+x).
 
+En primer lugar se debe definir un archivo con variables de configuración. Es posible utilizar uno de ejemplo:
+
+  ```
+  $ cp .env.dev.sample .env
+  ```
+
 Para construir la imagen docker del proyecto ejecutar:
 
   ```

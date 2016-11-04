@@ -1,10 +1,7 @@
 # Include environment variables from .env
 include .env
 
-init: init_env create seed
-
-init_env:
-	cp .env.dev.sample .env
+init: create seed
 
 #
 clean_db:
