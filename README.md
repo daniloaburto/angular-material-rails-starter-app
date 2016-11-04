@@ -22,6 +22,18 @@ Luego, para levantar los contenedores se debe ejecutar el siguiente comando:
   $ make run # también es posible usar 'make start' para ejecutar en background
   ```
 
+Cuando el comando ***make run*** es ejecutado por primera vez, realiza la instalación de gemas y paquetes bower del proyecto. La instalación de todo lo mencionado habrá finalizado cuando aparezca en la consola el mensaje:
+
+  ```
+  $ ################################
+  $ #                              #
+  $ #                              #
+  $ #    OPS CONTAINER IS READY    #
+  $ #                              #
+  $ #                              #
+  $ ################################
+  ```
+
 Una vez que los contenedores están ejecutándose, es posible encontrar a cualquiera de ellos con alguno de los siguientes comandos (ejecutar en otra pestaña):
 
   ```
