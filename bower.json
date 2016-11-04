@@ -2,7 +2,10 @@
   "name": "rails-seed",
   "version": "0.0.1",
   "dependencies": {
-    "bootstrap-sass": "3.3.6"
+    "bootstrap-sass": "3.3.6",
+    "angular": "1.5.8",
+    "angular-resource": "1.5.8",
+    "async": "1.4.2"
   },
   "private": true
 }

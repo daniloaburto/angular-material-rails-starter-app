@@ -11,7 +11,7 @@ services:
     image: redis:3.0.5
 
   app:
-    image: rails-seed:latest
+    image: daniloaburto/rails-seed
     restart: always
     ports:
      - "80:80"
@@ -30,7 +30,7 @@ services:
       SLACK_EXCEPTIONS_CHANNEL: ${SLACK_EXCEPTIONS_CHANNEL}
 
   sidekiq:
-    image: rails-seed:latest
+    image: daniloaburto/rails-seed
     command: /sbin/my_init -- bundle exec sidekiq -e ${ENV} -c ${SIDEKIQ_CONCURRENCY}
     restart: always
     links:
@@ -47,7 +47,7 @@ services:
       SLACK_EXCEPTIONS_CHANNEL: ${SLACK_EXCEPTIONS_CHANNEL}
 
   ops:
-    image: rails-seed:latest
+    image: daniloaburto/rails-seed
     restart: always
     links:
       - database
