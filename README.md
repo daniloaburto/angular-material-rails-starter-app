@@ -63,7 +63,7 @@ Para probar el scaffolding, dentro del contenedor rails ejecutar:
 Una vez finalizado el scaffolding se puede visitar algunos de los recursos creados, por ejemplo: [http://localhost:3000/countries](http://localhost:3000/countries)
 
 
-### Comandos para desarrollo (en el host)
+### Comandos para desarrollo
   - (host) ***make build***: Construye las imágenes docker para cada servicio
   - (host) ***make run***: Crea los contenedores para cada servicio
   - (host) ***make start***: Similar a ***make run*** pero opera en background
