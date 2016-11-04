@@ -11,9 +11,7 @@ services:
     image: redis:3.0.5
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: rails-seed:latest
     restart: always
     ports:
      - "80:80"
@@ -32,9 +30,7 @@ services:
       SLACK_EXCEPTIONS_CHANNEL: ${SLACK_EXCEPTIONS_CHANNEL}
 
   sidekiq:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: rails-seed:latest
     command: /sbin/my_init -- bundle exec sidekiq -e ${ENV} -c ${SIDEKIQ_CONCURRENCY}
     restart: always
     links:
@@ -51,9 +47,7 @@ services:
       SLACK_EXCEPTIONS_CHANNEL: ${SLACK_EXCEPTIONS_CHANNEL}
 
   ops:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: rails-seed:latest
     restart: always
     links:
       - database
