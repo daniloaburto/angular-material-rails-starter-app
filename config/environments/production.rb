@@ -94,15 +94,4 @@ Rails.application.configure do
     enable_starttls_auto: false
   }
 
-  # Notifications only via Slack
-  if ENV['SLACK_WEBHOOK_URL'].present?
-    Rails.application.config.middleware.use ExceptionNotification::Rack,
-    :slack => {
-      :webhook_url => ENV['SLACK_WEBHOOK_URL'],
-      :channel => "##{ENV['SLACK_EXCEPTIONS_CHANNEL']}",
-      :additional_parameters => {
-        :mrkdwn => true
-      }
-    }
-  end
 end
