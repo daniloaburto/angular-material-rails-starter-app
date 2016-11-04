@@ -44,6 +44,20 @@ Para probar el scaffolding, dentro del contenedor rails ejecutar:
 
 Una vez finalizado el scaffolding se puede visitar algunos de los recursos creados, por ejemplo: [http://localhost:3000/countries](http://localhost:3000/countries)
 
+
+### Comandos para desarrollo (en el host)
+  - (host) ***make build***: Construye las imágenes docker para cada servicio
+  - (host) ***make run***: Crea los contenedores para cada servicio
+  - (host) ***make start***: Similar a ***make run*** pero opera en background
+  - (host) ***make stop***: Detiene los contenedores en ejecución
+  - (host) ***make enter***: Ingresa al contenedor Rails
+  - (host) ***make enter-sidekiq***: Ingresa al contenedor Sidekiq
+  - (host) ***make enter-ops***: Ingresa al contenedor de DevOps
+  - (contenedor rails) ***make init***: Ajusta el proyecto para comenzar a desarrollar
+  - (contenedor rails) ***make server***: Inicia el servidor Webrick. También es posible con el comando ***make s***
+  - (contenedor rails) ***make redo***: Inicia el scaffolding definido en el makefile
+  - (contenedor sidekiq) ***make sidekiq***: Inicia el proceso Sidekiq. También es posible con el comando ***make sq***
+
 ## Instalación y ejecución en producción
 
 La aplicación también puede ser desplegada en producción a través de contenedores Docker. Para ello se requiere instalar [Docker en linux](https://www.google.com/search?q=install+docker+linux).
