@@ -60,9 +60,9 @@ COMPLETAR!
   - I18N (es-CL, pt-BR, en)
   - Bower
   - Backup automático de BD (notificaciones via slack)
-
+  - Integración con Slack
+  
 ## TODO:
   - Agregar ActiveAdmin
-  - Integración con Slack
   - Angular o React
   - Agregar linters

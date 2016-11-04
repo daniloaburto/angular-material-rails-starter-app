@@ -133,7 +133,7 @@ Model.new(:backup_database, 'Application database (PostgreSQL)') do
       # Optional
       #
       # The channel to which messages will be sent
-      slack.channel = ENV['SLACK_CHANNEL']
+      slack.channel = "##{ENV['SLACK_EXCEPTIONS_CHANNEL']}"
       #
       # The username to display along with the notification
       # slack.username = 'my_username'

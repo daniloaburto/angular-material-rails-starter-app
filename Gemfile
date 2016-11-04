@@ -93,3 +93,7 @@ gem 'sidekiq', '4.0.1'
 
 # Gem that provides the I18n translations on the Javascript
 gem "i18n-js", "3.0.0.rc11"
+
+# Notifications
+gem 'exception_notification', "4.2.1"
+gem 'slack-notifier', '1.5.1'
