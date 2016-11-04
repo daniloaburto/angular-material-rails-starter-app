@@ -1,7 +1,7 @@
 # Include environment variables from .env
 include .env
 
-init: create seed
+init: create
 
 #
 clean_db:
