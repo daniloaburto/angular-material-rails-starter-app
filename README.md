@@ -48,6 +48,10 @@ La aplicación también puede ser desplegada en producción a través de contene
 
 COMPLETAR!
 
+## Variables de entorno
+
+COMPLETAR!
+
 ## Características:
   - Entorno de desarrollo y producción usando docker
   - Scaffolding usando makefile
@@ -61,7 +65,7 @@ COMPLETAR!
   - Bower
   - Backup automático de BD (notificaciones via slack)
   - Integración con Slack
-  
+
 ## TODO:
   - Agregar ActiveAdmin
   - Angular o React
