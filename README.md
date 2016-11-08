@@ -99,8 +99,8 @@ COMPLETAR!
   - Bower
   - Backup automático de BD (notificaciones via slack)
   - Integración con Slack
+  - Incluye AngularJS integrado
 
 ## TODO:
   - Agregar ActiveAdmin
-  - Angular o React
   - Agregar linters
