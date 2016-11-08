@@ -2,8 +2,8 @@
   "use strict";
 
   // Define controller
-  function applicationCtrl ($scope) {
-    console.log('applicationCtrl: Hi')
+  function homeCtrl ($scope) {
+    console.log('homeCtrl: Hi')
     var data = $scope.data = {}
     var view = $scope.view = {}
     var fn = $scope.fn = {}
@@ -11,9 +11,9 @@
 
   // Register controller
   angular
-    .module('app.controllers.application', [])
-    .controller('applicationCtrl', [
+    .module('app.controllers.home', [])
+    .controller('homeCtrl', [
       '$scope',
-      applicationCtrl
+      homeCtrl
     ])
 })();

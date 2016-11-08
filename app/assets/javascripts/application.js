@@ -14,12 +14,8 @@
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require i18n
 //= require i18n/translations
-
-$(function(){
-
-  // Tooltips
-  $('[data-tooltip="tooltip"]').tooltip({
-    container: 'body'
-  });
-
-});
+//= require angular/angular
+//= require angular-resource/angular-resource
+//= require ng/app
+//= require ng/controllers/application
+//= require ng/controllers/home

@@ -1,6 +1,6 @@
 <%%= show_error_messages!(@<%= singular_table_name %>) %>
 
-<div class="container">
+<div class="container"<%%# ng-controller="<%= plural_table_name %>NewCtrl" %>>
   <ol class="breadcrumb">
     <li>
       <%% if policy(<%= class_name %>).index? %>
