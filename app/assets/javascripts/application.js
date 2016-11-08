@@ -19,3 +19,12 @@
 //= require ng/app
 //= require ng/controllers/application
 //= require ng/controllers/home
+
+$(function(){
+
+  // Tooltips
+  $('[data-tooltip="tooltip"]').tooltip({
+    container: 'body'
+  })
+
+})
