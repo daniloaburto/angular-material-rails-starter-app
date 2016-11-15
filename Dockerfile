@@ -31,6 +31,9 @@ RUN bower install --allow-root
 # Add files
 ADD . /home/app/webapp/
 
+# Precompile assets
+RUN RAILS_ENV=production bundle exec rake assets:precompile
+
 # Change /home/app/webapp owner to user app
 RUN sudo chown -R app:app /home/app/webapp/
 

@@ -34,7 +34,7 @@ Cuando el comando ***make run*** es ejecutado por primera vez, realiza la instal
   $ ################################
   ```
 
-Una vez que los contenedores están ejecutándose, es posible encontrar a cualquiera de ellos con alguno de los siguientes comandos (ejecutar en otra pestaña):
+Una vez que los contenedores están ejecutándose, es posible entrar a cualquiera de ellos con alguno de los siguientes comandos (ejecutar en otra pestaña):
 
   ```
   $ make enter # ingresa al contenedor Rails

@@ -55,9 +55,9 @@ class ApplicationController < ActionController::Base
     # Strong parameters - works only if devise registration is enabled
     def configure_devise_permitted_parameters
       #registration_params = [:user_name, :role, :email, :password, :password_confirmation]
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:bp, :email, :password, :password_confirmation, :remember_me) }
-      devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :bp, :email, :password, :remember_me) }
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:bp, :email, :password, :password_confirmation, :current_password) }
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :remember_me) }
+      devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :email, :password, :remember_me) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password) }
     end
 
     def default_url_options

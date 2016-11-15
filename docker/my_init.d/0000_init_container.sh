@@ -2,7 +2,15 @@
 
 enable_nginx () {
 
+  # Preserve environment variables
+  # https://github.com/phusion/passenger-docker#setting-environment-variables-in-nginx
+  if [ ! -f /etc/nginx/main.d/app-env.conf ]; then
+    echo "Setting environment variables for nginx..."
+    cp /home/app/webapp/docker/services/app/nginx/app-env.conf /etc/nginx/main.d/
+  fi
+
   # Enable Nginx
+  # https://github.com/phusion/passenger-docker#using-nginx-and-passenger
   if [ ! -f /etc/nginx/sites-enabled/app.conf ]; then
       echo "Enabling nginx..."
       rm -f /etc/service/nginx/down
