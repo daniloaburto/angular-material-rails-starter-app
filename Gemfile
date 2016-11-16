@@ -80,7 +80,7 @@ group :development do
 end
 
 # Authentication solution for Rails based on Warden
-gem 'devise', '3.5.2'
+gem 'devise', '4.2.0'
 
 # Minimal authorization through OO design and pure Ruby classes
 gem "pundit", '1.0.1'
