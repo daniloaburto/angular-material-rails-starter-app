@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ujs
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require i18n
 //= require i18n/translations

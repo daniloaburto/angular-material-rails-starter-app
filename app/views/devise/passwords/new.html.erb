@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="login-header">
+    <div class="row">
+      <div class="col-md-8 col-sm-offset-2 text-center">
+        <%= image_tag "app-logo.png", alt: 'App Logo', class: 'app-logo' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t 'forgot_your_password', scope: [:devise, :passwords, :new] %></h3>
+        </div>
+        <%= form_for resource, as: resource_name, url: password_path(resource_name), html: {class: 'form-inline', role: 'form'} do |f| %>
+          <div class="panel-body">
+            <div class="form-group">
+              <%= devise_error_messages! %>
+              <div class="input-group">
+                <div class="input-group-addon">@</div>
+                <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: t('email', scope: [:activerecord, :attributes, :user]) %>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer panel-footer-toolbox">
+            <div class="panel-toolbar">
+              <div class="actions">
+                <%= link_to t('cancel', scope: [:devise, :shared, :links]), '#', class: "btn btn-default" %>
+                <%= f.submit t('reset_password', scope: [:devise, :passwords, :new]), class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="login-help text-center">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

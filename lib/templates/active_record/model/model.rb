@@ -19,7 +19,7 @@ class <%= class_name %> < <%= parent_class_name.classify %>
   # Validations
 <% attributes.each do |attribute| -%>
   # validates :<%= attribute.name %>, <validations>
-<% end -%>  
+<% end -%>
 
   # Scopes (used for search form)
   # Put here custom queries for <%= class_name %>
@@ -29,8 +29,8 @@ class <%= class_name %> < <%= parent_class_name.classify %>
 
   # Override to_s method
   def to_s
-    name  # editable
+    (defined? name)? name : ((defined? email)? email : id)  # editable
   end
-  
+
 end
 <% end -%>

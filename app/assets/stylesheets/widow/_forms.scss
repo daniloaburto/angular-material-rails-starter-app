@@ -1,0 +1,109 @@
+
+/*
+ * Sign in form
+ */
+.form-signin {
+  padding: 15px;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox{
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  font-size: 16px;
+  padding: 10px;
+  height: 40px;
+  position: relative;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin input[type="checkbox"] {
+  margin-left: 0;
+}
+//
+// textarea {
+//   &.form-control {
+//     &.vertical-resize {
+//       resize: vertical;
+//     }
+//
+//     &.no-resize {
+//       resize: none;
+//     }
+//   }
+// }
+//
+// // Formularios para barras de herramientas, son similares a los inline
+// .form-toolbar {
+//   display: inline-block;
+//
+//   // Kick in the inline
+//   // Inline-block all the things for "inline"
+//   .form-group {
+//     display: inline-block;
+//     margin-bottom: 0;
+//     vertical-align: middle;
+//
+//     > input#search {
+//       width: 300px;
+//     }
+//   }
+//
+//   // In navbar-form, allow folks to *not* use `.form-group`
+//   .form-control {
+//     display: inline-block;
+//     width: auto; // Prevent labels from stacking above inputs in `.form-group`
+//     vertical-align: middle;
+//   }
+//
+//   .control-label {
+//     margin-bottom: 0;
+//     vertical-align: middle;
+//   }
+//
+//   // Remove default margin on radios/checkboxes that were used for stacking, and
+//   // then undo the floating of radios and checkboxes to match (which also avoids
+//   // a bug in WebKit: https://github.com/twbs/bootstrap/issues/1969).
+//   .radio,
+//   .checkbox {
+//     display: inline-block;
+//     margin-top: 0;
+//     margin-bottom: 0;
+//     padding-left: 0;
+//     vertical-align: middle;
+//   }
+//   .radio input[type="radio"],
+//   .checkbox input[type="checkbox"] {
+//     float: none;
+//     margin-left: 0;
+//   }
+//
+//   // Validation states
+//   //
+//   // Reposition the icon because it's now within a grid column and columns have
+//   // `position: relative;` on them. Also accounts for the grid gutter padding.
+//   .has-feedback .form-control-feedback {
+//     top: 0;
+//   }
+// }

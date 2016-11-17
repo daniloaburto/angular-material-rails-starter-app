@@ -21,19 +21,19 @@
     </div><!-- .warning -->
 
     <div class="header">
-      <div class="header-logo"></div>
+      <!-- <div class="header-logo"></div>
       <div class="header-title">
         <%= t('title', scope: :header) %>
-      </div>
+      </div> -->
 
       <%# unless Rails.env.production? %>
       <!-- LANGUAGE DROPDOWN SELECT -->
       <div class="pull-right dropdown" id="no-login-language-dropdown">
         <%= link_to '#', data: { toggle: 'dropdown' }, class: 'header-dropdown-link' do %>
           <% if params[:locale].present? %>
-            <%= image_tag "flags/#{params[:locale]}.png", alt: "#{params[:locale]}", id: 'locale-flag' %>
+            <%= image_tag "flags/#{params[:locale]}.png", alt: "#{params[:locale]}", class: 'locale-flag' %>
           <% else -%>
-            <%= image_tag "flags/es-CL.png", alt: "es-CL", id: 'locale-flag' %>
+            <%= image_tag "flags/es-CL.png", alt: "es-CL", class: 'locale-flag' %>
           <% end -%>
 
           <b class="caret"></b>
@@ -41,21 +41,21 @@
             <% unless params[:locale] == "es-CL" %>
             <li>
               <%= link_to locale: 'es-CL' do %>
-                <%= image_tag "flags/es-CL.png", alt: "es-CL", id: 'locale-flag' %> <%= t('es_cl', scope: [:top_menu, :languages]) %>
+                <%= image_tag "flags/es-CL.png", alt: "es-CL", class: 'locale-flag' %> <%= t('es_cl', scope: [:top_menu, :languages]) %>
               <% end -%>
             </li>
             <% end -%>
             <% unless params[:locale] == "pt-BR" %>
             <li>
               <%= link_to locale: 'pt-BR' do %>
-                <%= image_tag "flags/pt-BR.png", alt: "pt-BR", id: 'locale-flag' %> <%= t('pt_br', scope: [:top_menu, :languages]) %>
+                <%= image_tag "flags/pt-BR.png", alt: "pt-BR", class: 'locale-flag' %> <%= t('pt_br', scope: [:top_menu, :languages]) %>
               <% end -%>
             </li>
             <% end -%>
             <% unless params[:locale] == "en" %>
             <li>
               <%= link_to locale: 'en' do %>
-                <%= image_tag "flags/en.png", alt: "en", id: 'locale-flag' %> <%= t('en_us', scope: [:top_menu, :languages]) %>
+                <%= image_tag "flags/en.png", alt: "en", class: 'locale-flag' %> <%= t('en_us', scope: [:top_menu, :languages]) %>
               <% end -%>
             </li>
             <% end -%>

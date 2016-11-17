@@ -17,7 +17,6 @@ scaffold_models:
 	bundle exec rails g scaffold User \
 		first_name:string{255} \
 		last_name:string{255} \
-		email:string{255} \
 		enabled:boolean \
 		role:integer{4};
 
@@ -32,7 +31,12 @@ destroy_models:
 
 # Devise
 enable_devise:
+	bundle exec rails generate devise:install
 	bundle exec rails generate devise User
+
+disable_devise:
+	bundle exec rails destroy devise:install
+	bundle exec rails destroy devise User
 
 # Policies
 scaffold_policies:
@@ -56,8 +60,8 @@ create:
 seed:
 	rake db:seed
 
-scaffold: scaffold_models scaffold_policies
-destroy: destroy_models destroy_policies
+scaffold: scaffold_models scaffold_policies enable_devise
+destroy: disable_devise destroy_models destroy_policies
 redo: destroy scaffold create seed
 
 # Docker (dev only)

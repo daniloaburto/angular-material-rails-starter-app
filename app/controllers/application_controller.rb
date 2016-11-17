@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   around_filter :set_timezone
 
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -46,18 +46,18 @@ class ApplicationController < ActionController::Base
       new_user_session_path
     end
 
-    # Overwriting the sign_in redirect path method
-    def after_sign_in_path_for resource
-      authenticated_root_path
-    end
+    # # Overwriting the sign_in redirect path method
+    # def after_sign_in_path_for resource
+    #   authenticated_root_path
+    # end
 
   protected
     # Strong parameters - works only if devise registration is enabled
     def configure_devise_permitted_parameters
       #registration_params = [:user_name, :role, :email, :password, :password_confirmation]
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :remember_me) }
-      devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :email, :password, :remember_me) }
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password) }
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :remember_me) }
+      devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:login, :email, :password, :remember_me) }
+      devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password) }
     end
 
     def default_url_options
