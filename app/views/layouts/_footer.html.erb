@@ -1,6 +1,11 @@
     <script type="text/javascript">
       window.name = "NG_DEFER_BOOTSTRAP!";
     </script>
+
+    <!-- View's JS -->
+    <%= yield :js_rails_data %>
+    <!-- END OF View's JS -->
+    
     <!-- App's JS -->
     <%= javascript_include_tag 'application' %>
     <!-- END OF App's JS -->

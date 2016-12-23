@@ -1,6 +1,6 @@
 <%%= show_error_messages!(@<%= singular_table_name %>) %>
 
-<div class="container"<%%# ng-controller="<%= plural_table_name %>EditCtrl" %>>
+<div class="container">
   <ol class="breadcrumb">
     <li>
       <%% if policy(<%= class_name %>).index? %>
@@ -19,4 +19,6 @@
   </ol>
 </div>
 
-<%%= render 'form' %>
+<div class="form-wrapper"<%%# ng-controller="<%= plural_table_name %>EditCtrl" %>>
+  <%%= render 'form' %>
+</div>

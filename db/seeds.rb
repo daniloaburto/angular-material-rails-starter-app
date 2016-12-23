@@ -23,6 +23,5 @@ country_PY = Country.create! name: 'Paraguay'
 country_BR = Country.create! name: 'Brasil'
 
 # Users
-# user_1 = User.create! firstname: 'System', lastname: 'Admin', email:'admin@requies.cl', password:'admin123', password_confirmation:'admin123', role: 0, bp: 123456, enabled: true, country: country_CL
-# user_2 = User.create! firstname: 'Caio', lastname: 'Bezares', email:'caio@requies.cl', password:'caio123', password_confirmation:'caio123', role: 0, bp: 234567, enabled: true, country: country_CL
-# user_3 = User.create! firstname: 'Danilo', lastname: 'Aburto', email:'danilo@requies.cl', password: 'danilo123', password_confirmation:'danilo123', role: 0, bp: 345678, enabled: true, country: country_CL
+user_1 = User.create! first_name: 'System', last_name: 'Admin', email:'admin@requies.cl', password:'admin123', password_confirmation:'admin123', role: 0, enabled: true
+user_2 = User.create! first_name: 'Danilo', last_name: 'Aburto', email:'danilo@requies.cl', password: 'danilo123', password_confirmation:'danilo123', role: 0, enabled: true

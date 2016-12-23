@@ -72,6 +72,19 @@
   <%% end %>
 </div><!-- /.container -->
 
+<%% content_for :js_rails_data do %>
+<script type="text/javascript">
+  <%%# Data here will be passed to angular js %>
+  var rails_data = {
+    'resource': {
+      'singular_name': '<%= singular_table_name %>',
+      'plural_name': '<%= plural_table_name %>',
+    },
+    'action_name': '<%%= action_name %>'
+  }
+</script>
+<%% end %>
+
 <%% content_for :script do %>
   <!-- Put your script code specific for <%= plural_table_name %> _form view -->
 <%% end %>
