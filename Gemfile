@@ -47,6 +47,10 @@ gem 'sdoc', '0.4.1', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :development, :test do
+  gem 'rspec-rails', '3.5.2'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '2.2.1'

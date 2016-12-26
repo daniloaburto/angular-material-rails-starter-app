@@ -97,14 +97,19 @@ ifeq ($(wildcard /.dockerenv),)
 	docker-compose stop
 endif
 
+restart:
+ifeq ($(wildcard /.dockerenv),)
+	docker-compose restart
+endif
+
 enter:
-	docker exec -it $(APP_CONTAINER_NAME) /bin/bash
+	docker exec -it $(APP_CONTAINER_NAME) /bin/bash -l
 
 enter-sidekiq:
-	docker exec -it $(SIDEKIQ_CONTAINER_NAME) /bin/bash
+	docker exec -it $(SIDEKIQ_CONTAINER_NAME) /bin/bash -l
 
 enter-ops:
-	docker exec -it $(OPS_CONTAINER_NAME) /bin/bash
+	docker exec -it $(OPS_CONTAINER_NAME) /bin/bash -l
 
 status:
 ifeq ($(wildcard /.dockerenv),)
