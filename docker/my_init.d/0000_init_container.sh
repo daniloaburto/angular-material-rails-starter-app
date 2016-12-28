@@ -20,9 +20,9 @@ enable_nginx () {
 }
 
 install_ruby_gems () {
-  # Bundle install
+  # Bundle install only if dependencies are not satisfied
   echo "Installing ruby gems..."
-  cd /home/app/webapp && (bundle check || bundle install --jobs 4 --retry 6)
+  bundle check || bundle install --jobs 4 --retry 6
 }
 
 install_bower () {
@@ -85,15 +85,6 @@ then
   then
     # Do something
     echo "Init app..."
-  elif [ "$SERVICE" = "sidekiq" ]
-  then
-    # Do something
-    echo "Init sidekiq..."
-  elif [ "$SERVICE" = "ops" ]
-  then
-    # Do something
-    echo "Init ops..."
-
     install_ruby_gems
     install_bower
     setup_backups
@@ -102,7 +93,7 @@ then
     echo "################################"
     echo "#                              #"
     echo "#                              #"
-    echo "#    OPS CONTAINER IS READY    #"
+    echo "#    APP CONTAINER IS READY    #"
     echo "#                              #"
     echo "#                              #"
     echo "################################"

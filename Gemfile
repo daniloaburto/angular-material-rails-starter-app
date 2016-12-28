@@ -81,6 +81,10 @@ group :development do
 
   # Step-by-step debugging and stack navigation in Pry
   gem 'pry-byebug', '3.4.0'
+
+  # RubyMine Debug dependencies
+  gem 'ruby-debug-ide', '0.6.0'
+  gem 'debase', '0.2.2.beta8'
 end
 
 # Authentication solution for Rails based on Warden

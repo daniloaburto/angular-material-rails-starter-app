@@ -3,7 +3,7 @@ FROM phusion/passenger-ruby22:0.9.15
 # Set correct environment variables.
 ENV HOME /root
 ENV APP_HOME /home/app/webapp
-ENV BUNDLE_PATH /home/app/webapp/vendor/bundle
+# ENV BUNDLE_PATH /home/app/webapp/vendor/bundle
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -25,6 +25,10 @@ ADD . /home/app/webapp/
 
 # Change /home/app/webapp owner to user app
 RUN sudo chown -R app:app /home/app/webapp/
+
+# Enable ssh and insecure key permanently
+RUN rm -f /etc/service/sshd/down
+RUN /usr/sbin/enable_insecure_key
 
 # Add init script
 ADD docker/my_init.d/*.sh /etc/my_init.d/

@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "5432:5432"
+     - "5432:5432"
     volumes:
       - /var/lib/postgresql/data
 
@@ -23,10 +23,11 @@ services:
     # command: /sbin/my_init -- bundle exec rails s -b 0.0.0.0 -p 3000
     ports:
      - "3000:3000"
+     - "3001:22" # ssh connections
     volumes:
      - .:/home/app/webapp
-     - bundle-data:/home/app/webapp/vendor/bundle
-     - bower-data:/home/app/webapp/vendor/assets
+     - /var/lib/gems/2.2.0
+     - /home/app/webapp/vendor/assets
     links:
       - database
       - redis
@@ -41,48 +42,3 @@ services:
       SLACK_CHANNEL: ${SLACK_CHANNEL}
       SLACK_EXCEPTIONS_CHANNEL: ${SLACK_EXCEPTIONS_CHANNEL}
       TERM: xterm-256color
-
-  sidekiq:
-    container_name: ${SIDEKIQ_CONTAINER_NAME}
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    # command: /sbin/my_init -- bundle exec sidekiq -e ${ENV} -c ${SIDEKIQ_CONCURRENCY}
-    environment:
-      SERVICE: sidekiq
-      ENV: ${ENV}
-      SLACK_WEBHOOK_URL: ${SLACK_WEBHOOK_URL}
-      SLACK_CHANNEL: ${SLACK_CHANNEL}
-      SLACK_EXCEPTIONS_CHANNEL: ${SLACK_EXCEPTIONS_CHANNEL}
-    volumes:
-     - bundle-data:/home/app/webapp/vendor/bundle
-    links:
-      - database
-      - redis
-
-  ops:
-    container_name: ${OPS_CONTAINER_NAME}
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    environment:
-      SERVICE: ops
-      ENV: ${ENV}
-      POSTGRES_DB_NAME: ${POSTGRES_DB_NAME}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      SLACK_WEBHOOK_URL: ${SLACK_WEBHOOK_URL}
-      SLACK_CHANNEL: ${SLACK_CHANNEL}
-      SLACK_EXCEPTIONS_CHANNEL: ${SLACK_EXCEPTIONS_CHANNEL}
-    volumes:
-      - bundle-data:/home/app/webapp/vendor/bundle
-      - bower-data:/home/app/webapp/vendor/assets
-    links:
-      - database
-      - redis
-
-volumes:
-  bundle-data:
-    driver: local
-  bower-data:
-    driver: local
