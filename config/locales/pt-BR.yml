@@ -52,7 +52,7 @@ pt-BR:
     sign_out: Sair
     languages:
       es_cl: 'Español'
-      pt_br: 'Portuguêss'
+      pt_br: 'Português'
       en_us: 'English'
   actions:
     create:
