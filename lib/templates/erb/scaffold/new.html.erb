@@ -4,9 +4,9 @@
   <ol class="breadcrumb">
     <li>
       <%% if policy(<%= class_name %>).index? %>
-        <%%= link_to <%= class_name %>.model_name.human.pluralize, <%= plural_table_name %>_path %>
+        <%%= link_to <%= class_name %>.model_name.human(count: 2), <%= plural_table_name %>_path %>
       <%% else %>
-        <%%= <%= class_name %>.model_name.human.pluralize %>
+        <%%= <%= class_name %>.model_name.human(count: 2) %>
       <%% end -%>
     </li>
     <li class="active"><%%= t('new', scope: :breadcrumb) %></li>
