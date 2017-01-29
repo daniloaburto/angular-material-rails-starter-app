@@ -43,5 +43,17 @@ module RailsApp
       g.javascript_engine :js
       g.test_framework    :test_unit, fixture: true
     end
+
+    # Configure Rake CORS
+    config.middleware.insert_before 0, "Rack::Cors", logger: (-> { Rails.logger }) do
+      allow do
+        origins '*'
+
+        resource '/api/web/v1/*',
+          headers: :any,
+          methods: [:get, :post, :delete, :put, :options, :head],
+          max_age: 0
+      end
+    end
   end
 end

@@ -18,6 +18,9 @@ var app = angular.module('application', [
 
 .config(['$httpProvider', function($httpProvider) {
   // $httpProvider.interceptors.push('SessionInterceptor')
+
+  // Se envian las credenciales por defecto
+  $httpProvider.defaults.withCredentials = true
 }])
 
 .config(['$httpProvider', function($httpProvider) {
