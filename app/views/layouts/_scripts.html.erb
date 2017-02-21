@@ -1,0 +1,30 @@
+<script type="text/javascript">
+  window.name = "NG_DEFER_BOOTSTRAP!";
+</script>
+
+<script type="text/javascript">
+  window.api_port = window.location.port || 80;
+  window.api_path = '/api/web/v1';
+  window.api_url = window.location.origin.split(':')[0] +
+                   ':' +
+                   window.location.origin.split(':')[1] +
+                   ':' +
+                   window.api_port +
+                   window.api_path;
+</script>
+
+<!-- View's JS -->
+<%= yield :js_rails_data %>
+<!-- END OF View's JS -->
+
+<!-- App's JS -->
+<%= javascript_include_tag 'application' %>
+<!-- END OF App's JS -->
+
+<!-- I18n js default -->
+<script>
+  I18n.defaultLocale = "<%= I18n.default_locale %>";
+  I18n.locale = "<%= I18n.locale %>";
+  I18n.fallbacks = true;
+</script>
+<!-- END I18n js default -->

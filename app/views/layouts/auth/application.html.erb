@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="login">
+
+<!-- HEADER -->
+<%= render "layouts/header" %>
+<!-- END OF HEADER -->
+
+<body ng-app="app">
+  <%= render "layouts/auth/subheader" %>
+
+  <div
+    layout="row"
+    layout-fill
+    layout-align="center center"
+    md-colors="::{backgroundColor: 'default-primary-700'}">
+
+    <div
+    layout="column"
+    layout-padding
+    layout-align="center center">
+      <div layout="row">
+        <md-icon md-svg-src="<%= image_url("icons/angular.svg") %>" class="icon icon-s40 margin-r10"></md-icon>
+        <h1 md-truncate class="md-headline">Project Name</h1>
+      </div>
+
+      <div layout-fill class="width-330">
+        <% flash.each do |key, value| %>
+          <app-notification
+            type="<%= key %>"
+            title='<%= t("#{key}_title", scope: :flash) %>'>
+            <%= value %>
+          </app-notification>
+        <% end %>
+
+        <!-- APP YIELD -->
+        <%= yield %>
+        <!-- END OF APP YIELD -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <%= render "layouts/scripts" %>
+  <!-- END OF FOOTER -->
+</body>
+</html>

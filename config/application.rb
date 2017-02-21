@@ -29,11 +29,11 @@ module RailsApp
 
     # Change default Devise layout
     config.to_prepare do
-      Devise::SessionsController.layout "application-no-login.html.erb"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "application-no-login.html.erb" }
-      Devise::ConfirmationsController.layout "application-no-login.html.erb"
-      Devise::UnlocksController.layout "application-no-login.html.erb"
-      Devise::PasswordsController.layout "application-no-login.html.erb"
+      Devise::SessionsController.layout "auth/application.html.erb"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "auth/application.html.erb" }
+      Devise::ConfirmationsController.layout "auth/application.html.erb"
+      Devise::UnlocksController.layout "auth/application.html.erb"
+      Devise::PasswordsController.layout "auth/application.html.erb"
     end
 
     config.generators do |g|

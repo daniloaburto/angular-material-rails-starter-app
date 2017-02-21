@@ -24,6 +24,7 @@ es-CL:
     delete: 'Eliminar'
     delete_resource: 'Eliminar %{resource}'
     are_you_sure: '¿Estás seguro?'
+    confirmation_required: 'Confirmación requerida'
     cancel: 'Cancelar'
     back: 'Volver'
     save: 'Guardar'
@@ -39,6 +40,7 @@ es-CL:
     example_short: 'Ej'
     role_undefined: 'Rol indefinido'
     no_resources_found: 'No se encontraron %{resources}'
+    index: 'Índice'
   breadcrumb:
     edit: 'Editar'
     create: 'Crear'

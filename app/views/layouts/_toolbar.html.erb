@@ -1,0 +1,18 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button
+      class="md-icon-button"
+      aria-label="Left Sidemenu"
+      hide-gt-sm
+      ng-click="base.toggleSidemenu('left')">
+      <ng-md-icon icon="menu" style="fill: #fff"></ng-md-icon>
+    </md-button>
+    <md-icon hide-gt-sm md-svg-src="<%= image_url("icons/angular.svg") %>" class="icon icon-s30 margin-r15"></md-icon>
+
+    <h2 md-truncate flex>
+      <%= yield :view_title %>
+    </h2>
+
+    <%= yield :view_menu %>
+  </div>
+</md-toolbar>

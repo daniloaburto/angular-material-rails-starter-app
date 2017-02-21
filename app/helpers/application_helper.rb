@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def show_error_messages!(resource)
     return '' if resource.errors.empty?
 
@@ -21,6 +21,19 @@ module ApplicationHelper
         </div>
       </div>
     HTML
+    html.html_safe
+  end
+
+  def attr_has_error?(object, attribute)
+    object.errors[attribute].present? ? 'md-is-error="true"' : ''
+  end
+
+  def show_attr_errors!(object, attribute)
+    return '' unless object.errors[attribute].present?
+    errors = object.errors[attribute]
+                   .map{|e| "<span class='input-error'>#{e}</span>"}
+                   .join('')
+    html = "<div class='input-errors'>#{errors}</div>"
     html.html_safe
   end
 end

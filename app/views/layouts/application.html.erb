@@ -1,29 +1,34 @@
-<%= render "layouts/html_tag" %>
+<!DOCTYPE html>
+<html lang="en" class="app">
 
 <!-- HEADER -->
 <%= render "layouts/header" %>
 <!-- END OF HEADER -->
 
-<!-- HEADER2 -->
-<%= render "layouts/subheader" %>
-<!-- END OF HEADER2 -->
+<body ng-app="app">
+  <div class="app" layout="row" layout-fill ng-controller="BaseController as base">
+    <!-- MENU -->
+    <%= render "layouts/menu" %>
+    <!-- END OF MENU -->
 
-<!-- TOPMENU -->
-<%= render "layouts/topmenu" %>
-<!-- END OF TOPMENU -->
+    <div layout="column" flex>
 
-<!-- ALERTS -->
-<%= render "layouts/alerts" %>
-<!-- END OF ALERTS -->
+      <!-- TOOLBAR -->
+      <%= render "layouts/toolbar" %>
+      <!-- END OF TOOLBAR -->
 
-<!-- YIELD -->
-<%= yield %>
-<!-- END OF YIELD -->
+      <!-- ALERTS -->
+      <%= render "layouts/alerts" %>
+      <!-- END OF ALERTS -->
 
-<!-- FOOTER2 -->
-<%= render "layouts/subfooter" %>
-<!-- END OF FOOTER2 -->
+      <!-- CONTENT -->
+      <%= render "layouts/content" %>
+      <!-- END OF CONTENT -->
+    </div>
+  </div>
 
-<!-- FOOTER -->
-<%= render "layouts/footer" %>
-<!-- END OF FOOTER -->
+  <!-- SCRIPTS -->
+  <%= render "layouts/scripts" %>
+  <!-- END OF SCRIPTS -->
+</body>
+</html>

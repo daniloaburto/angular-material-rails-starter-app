@@ -24,6 +24,7 @@ en:
     delete: 'Delete'
     delete_model: 'Delete %{model}'
     are_you_sure: '¿Are you sure?'
+    confirmation_required: 'Confirmation required'
     cancel: 'Cancel'
     back: 'Back'
     save: 'Save'
@@ -39,6 +40,7 @@ en:
     example_short: 'Ex'
     role_undefined: 'Undefined role'
     no_resources_found: 'No %{resources} found'
+    index: 'Index'
   breadcrumb:
     edit: 'Edit'
     create: 'Create'

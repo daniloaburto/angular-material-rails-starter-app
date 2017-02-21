@@ -1,40 +1,38 @@
-<div class="container">
-  <div class="login-header">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2 text-center">
-        <%= image_tag "app-logo.png", alt: 'App Logo', class: 'app-logo' %>
+<%#= devise_error_messages! %>
+
+<md-card class="padding-15" md-whiteframe-z1>
+  <%= form_for resource, as: resource_name, url: password_path(resource_name), html: {class: 'form-inline', role: 'form'} do |f| %>
+    <md-card-content>
+      <div class="md-subhead">
+        <%= t 'forgot_your_password', scope: [:devise, :passwords, :new] %>
       </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <%= form_for resource, as: resource_name, url: password_path(resource_name), html: {class: 'form-inline', role: 'form'} do |f| %>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title"><%= t 'forgot_your_password', scope: [:devise, :passwords, :new] %></h3>
-          </div>
-            <div class="panel-body text-center">
-              <div class="form-group">
-                <%= devise_error_messages! %>
-                <div class="input-group">
-                  <div class="input-group-addon">@</div>
-                  <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: t('email', scope: [:activerecord, :attributes, :user]) %>
-                </div>
-              </div>
-            </div>
-            <div class="panel-footer panel-footer-toolbox">
-              <div class="panel-toolbar">
-                <%= link_to t('cancel', scope: [:devise, :shared, :links]), new_session_path(resource_name), class: "btn btn-default" %>
-                <%= f.submit t('reset_password', scope: [:devise, :passwords, :new]), class: "btn btn-primary" %>
-              </div>
-            </div>
-        </div>
-      <% end %>
-      <div class="login-help text-center">
-        <%= render "devise/shared/links" %>
-      </div>
-    </div>
-  </div>
-</div>
+
+      <!-- <div class="md-body-1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur molestias culpa ipsum, a voluptates ab ad delectus officia
+      </div> -->
+
+      <md-input-container class="md-block">
+        <!-- <label>E-Mail</label> -->
+        <!-- <input ng-model="user.email" type="email" required> -->
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+
+      </md-input-container>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center center">
+      <md-button
+        type="submit"
+        class="md-raised md-default">
+        <%= t('reset_password', scope: [:devise, :passwords, :new]) %>
+      </md-button>
+      <!-- <md-button
+        href="<%= new_session_path(resource_name) %>"
+        class="md-raised md-default">
+        <%= t('cancel', scope: [:devise, :shared, :links]) %>
+      </md-button> -->
+
+    </md-card-actions>
+  <% end %>
+</md-card>
+
+<%= render "devise/shared/links" %>

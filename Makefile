@@ -25,23 +25,23 @@ clean_db:
 
 # Models
 scaffold_models:
-	$(RAILS_CMD) g scaffold Country \
-		name:string{255};
-
 	$(RAILS_CMD) g scaffold User \
 		first_name:string{255} \
 		last_name:string{255} \
 		enabled:boolean \
 		role:integer{4};
 
-	$(RAILS_CMD) g scaffold Parameter \
-		key:string{255} \
-		value:string{255};
+	$(RAILS_CMD) g scaffold Country \
+		name:string{255};
+	#
+	# $(RAILS_CMD) g scaffold Parameter \
+	# 	key:string{255} \
+	# 	value:string{255};
 
 destroy_models:
-	$(RAILS_CMD) d scaffold Country;
 	$(RAILS_CMD) d scaffold User;
-	$(RAILS_CMD) d scaffold Parameter;
+	$(RAILS_CMD) d scaffold Country;
+	# $(RAILS_CMD) d scaffold Parameter;
 
 # Devise
 enable_devise:
@@ -54,14 +54,14 @@ disable_devise:
 
 # Policies
 scaffold_policies:
-	$(RAILS_CMD) g pundit:policy country;
 	$(RAILS_CMD) g pundit:policy user;
-	$(RAILS_CMD) g pundit:policy parameter;
+	$(RAILS_CMD) g pundit:policy country;
+	# $(RAILS_CMD) g pundit:policy parameter;
 
 destroy_policies:
-	$(RAILS_CMD) d pundit:policy country;
 	$(RAILS_CMD) d pundit:policy user;
-	$(RAILS_CMD) d pundit:policy parameter;
+	$(RAILS_CMD) d pundit:policy country;
+	# $(RAILS_CMD) d pundit:policy parameter;
 
 # Database
 create:

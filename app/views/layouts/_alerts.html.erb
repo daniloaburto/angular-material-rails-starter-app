@@ -1,36 +1,8 @@
-    <!-- Notices -->
-    <% if notice -%>
-    <div class="container">
-      <div class="alert alert-success alert-dismissable" id="flash_notice">
-        <%= button_tag raw("&times;"), class: 'close', data: { dismiss: 'alert' }, aria: { hidden: true } %>
-        <strong><%= icon 'check' %> <%= t('notice_title', scope: :flash) %>: </strong><%= notice %>
-      </div>
-    </div>
-    <% end -%>
-
-    <!-- Alerts -->
-    <% if alert -%>
-    <div class="container">
-      <div class="alert alert-warning alert-dismissable" id="flash_alert">
-        <%= button_tag raw("&times;"), class: 'close', data: { dismiss: 'alert' }, aria: { hidden: true } %>
-        <strong><%= icon 'exclamation-triangle' %> <%= t('alert_title', scope: :flash) %>: </strong><%= alert %>
-      </div>
-    </div>
-    <% end -%>
-
-    <!-- Errors -->
-    <% if flash[:error] -%>
-    <div class="container">
-      <div class="alert alert-danger alert-dismissable" id="flash_error">
-        <%= button_tag raw("&times;"), class: 'close', data: { dismiss: 'alert' }, aria: { hidden: true } %>
-        <strong><%= icon 'ban' %> <%= t('error_title', scope: :flash) %>: </strong><%= flash[:error] %>
-        <% unless flash[:messages].nil? -%>
-        <% flash[:messages].each do |msg| -%>
-        <li><%= msg %></li>
-        <% end -%>
-        <% end -%>
-      </div>
-    </div>
-    <% end -%>
-    
-  
+<!-- Flash messages -->
+<% flash.each do |key, value| %>
+  <app-notification
+    type="<%= key %>"
+    title='<%= t("#{key}_title", scope: :flash) %>'>
+    <%= value %>
+  </app-notification>
+<% end %>

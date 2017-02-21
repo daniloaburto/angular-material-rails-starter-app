@@ -1,0 +1,13 @@
+<md-card-title>
+  <md-card-title-media>
+    <md-icon class="md-media-sm margin-r15" md-svg-src="<%= image_url("icons/angular.svg") %>"></md-icon>
+  </md-card-title-media>
+  <md-card-title-text>
+    <span class="md-headline">
+      <%= object.new_record? ? t('new_resource', scope: :crud_views, resource: model.model_name.human) : object.to_s %>
+    </span>
+    <% unless object.new_record? %>
+      <span class="md-subhead"><%= model.model_name.human %></span>
+    <% end %>
+  </md-card-title-text>
+</md-card-title>

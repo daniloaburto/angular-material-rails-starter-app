@@ -1,18 +1,21 @@
-<%%= show_error_messages!(@<%= singular_table_name %>) %>
+<%% content_for :view_title do %>
+  <%%= t('new_resource', scope: :crud_views, resource: <%= class_name %>.model_name.human) %>
+<%% end %>
+<%% content_for :view_menu do %><%% end %>
 
-<div class="container"<%%# ng-controller="<%= plural_table_name %>NewCtrl" %>>
-  <ol class="breadcrumb">
-    <li>
-      <%% if policy(<%= class_name %>).index? %>
-        <%%= link_to <%= class_name %>.model_name.human(count: 2), <%= plural_table_name %>_path %>
-      <%% else %>
-        <%%= <%= class_name %>.model_name.human(count: 2) %>
-      <%% end -%>
-    </li>
-    <li class="active"><%%= t('new', scope: :breadcrumb) %></li>
-  </ol>
-</div>
-
-<div class="form-wrapper"<%%# ng-controller="<%= plural_table_name %>NewCtrl" %>>
+<div ng-controller="<%= plural_table_name.camelize %>NewCtrl">
   <%%= render 'form' %>
 </div>
+
+
+<%% content_for :js_rails_data do %>
+<script type="text/javascript">
+  var rails_data = {
+    'resource': {
+      'singular_name': '<%= singular_table_name %>',
+      'plural_name': '<%= plural_table_name %>',
+    },
+    'action_name': '<%%= action_name %>'
+  }
+</script>
+<%% end %>

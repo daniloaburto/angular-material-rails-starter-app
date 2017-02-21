@@ -1,0 +1,31 @@
+<md-toolbar class="md-table-toolbar md-default" ng-show="!indexCtrl.search.show">
+  <div class="md-toolbar-tools">
+    <span><%= t('index', scope: :crud_views) %></span>
+    <span flex></span>
+    <md-button
+      class="md-icon-button"
+      aria-label="Search"
+      ng-click="indexCtrl.search.show = true">
+      <md-icon ng-md-icon icon="search" style="fill: #000"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+
+<md-toolbar class="md-table-toolbar md-default" ng-show="indexCtrl.search.show">
+  <div class="md-toolbar-tools">
+    <md-button
+      class="md-icon-button"
+      aria-label="Back"
+      ng-click="indexCtrl.search.show = false">
+      <md-icon ng-md-icon icon="arrow_back" style="fill: #000"></md-icon>
+    </md-button>
+    <form action="<%= search_path %>" flex layout="row">
+      <md-input-container md-no-float flex>
+        <input name="q" ng-model="indexCtrl.search.query" placeholder="<%= t('search', scope: :crud_views) %>">
+      </md-input-container>
+      <md-button class="md-icon-button" aria-label="Search" type="submit">
+        <md-icon ng-md-icon icon="send" style="fill: #000"></md-icon>
+      </md-button>
+    </form>
+  </div><!--.md-toolbar-tools-->
+</md-toolbar>

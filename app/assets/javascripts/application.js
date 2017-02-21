@@ -10,22 +10,26 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery-ujs
-//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+
 //= require i18n
 //= require i18n/translations
+
 //= require angular/angular
 //= require angular-resource/angular-resource
-//= require ng/app
-//= require ng/controllers/application
-//= require ng/controllers/home
 
-$(function(){
+// Angular Material
+//= require angular-animate
+//= require angular-aria
+//= require angular-messages
+//= require angular-material
+//= require angular-material-icons
+//= require angular-material-data-table/dist/md-data-table
 
-  // Tooltips
-  $('[data-tooltip="tooltip"]').tooltip({
-    container: 'body'
-  })
-
-})
+//= require ng/app.module
+//= require ng/app.config
+//  require_tree ./ng/services
+//  require_tree ./ng/filters
+//= require_tree ./ng/directives
+//= require_tree ./ng/components
+//= require_tree ./ng/controllers
+//  require_tree ./ng/components

@@ -17,7 +17,7 @@
         <%= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put } do |f| %>
           <div class="panel-body">
             <div class="form-group">
-              <%= devise_error_messages! %>
+              <%#= devise_error_messages! %>
               <%= f.password_field :password, autofocus: true, class: 'form-control', placeholder: t('new_password', scope: [:devise, :passwords, :edit]) %>
             </div>
             <div class="form-group">

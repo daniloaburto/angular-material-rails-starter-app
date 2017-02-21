@@ -1,0 +1,15 @@
+<% if policy(model).new? %>
+<md-button
+  href="<%= polymorphic_path(model, action: 'new') %>"
+  class="md-fab md-warn md-fab-bottom-right"
+  aria-label="Profile">
+  <md-tooltip md-direction="left">
+    <%= t('new_resource', scope: :crud_views, resource: model.model_name.human) %>
+  </md-tooltip>
+  <md-icon
+    ng-md-icon
+    icon="add"
+    style="fill: #fff">
+  </md-icon>
+</md-button>
+<% end %>

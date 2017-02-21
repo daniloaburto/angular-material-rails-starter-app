@@ -1,0 +1,80 @@
+<md-sidenav
+  md-colors="::{backgroundColor: 'default-primary-700'}"
+  class="md-sidenav-left md-whiteframe-z3"
+  md-component-id="left"
+  md-is-locked-open="$mdMedia('gt-sm')">
+
+  <md-toolbar class="md-hue-2 md-tall" layout="column" layout-align="center center">
+    <div class="md-toolbar-tools">
+      <md-icon md-svg-src="<%= image_url("icons/angular.svg") %>" class="icon icon-s40 margin-r10"></md-icon>
+      <h1 md-truncate flex>Project Name</h1>
+    </div>
+
+    <div class="md-toolbar-tools" ng-class="{'margin-t15': !base.breakpoint}">
+      <ng-md-icon class="margin-l8 margin-r8" md-menu-origin icon="face" style="fill: #fff"></ng-md-icon>
+      <div layout="column" layout-align="center start" layout-padding>
+        <span class="md-body-2 padding-none">
+          <%= current_user.first_name %> <%= current_user.last_name %>
+        </span>
+        <span class="md-caption padding-none"><%= current_user.email %></span>
+      </div>
+      <span flex></span>
+
+      <md-menu md-position-mode="target target">
+        <md-button aria-label="Open Settings"
+          class="md-icon-button"
+          ng-click="base.openMenu($mdMenu, $event)">
+          <ng-md-icon md-menu-origin icon="more_vert" style="fill: #fff"></ng-md-icon>
+        </md-button>
+        <md-menu-content width="3">
+          <md-menu-item>
+            <md-button
+              data-method="delete"
+              data-title="<%= t('confirmation_required', scope: :crud_views) %>"
+              data-confirm="<%= t('are_you_sure', scope: :crud_views) %>"
+              href="<%= destroy_user_session_path %>">
+              <ng-md-icon md-menu-align-target icon="logout" style="fill: #aaa"></ng-md-icon>
+              <%= t('sign_out', scope: :top_menu) %>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
+
+  <md-list>
+    <md-list-item>
+      <ng-md-icon icon="local_bar" style="fill: #fff"></ng-md-icon>
+      <p>Menu 1</p>
+    </md-list-item>
+    <md-subheader
+      md-colors="::{backgroundColor: 'default-primary-600'}"
+      class="md-no-sticky"
+      style="fill: #fff">
+        Sub header title
+    </md-subheader>
+    <md-list-item>
+      <ng-md-icon icon="directions_walk" style="fill: #fff"></ng-md-icon>
+      <p>Menu 2</p>
+    </md-list-item>
+    <md-list-item>
+      <ng-md-icon icon="local_taxi" style="fill: #fff"></ng-md-icon>
+      <p>Menu 3</p>
+    </md-list-item>
+    <md-list-item>
+      <ng-md-icon icon="terrain" style="fill: #fff"></ng-md-icon>
+      <p>Menu 4</p>
+    </md-list-item>
+    <md-subheader
+      md-colors="::{backgroundColor: 'default-primary-600'}"
+      class="md-no-sticky"
+      style="fill: #fff">
+      Auth
+    </md-subheader>
+    <md-list-item>
+      <ng-md-icon icon="directions_walk" style="fill: #fff"></ng-md-icon>
+      <p>Users</p>
+    </md-list-item>
+  </md-list>
+
+</md-sidenav>

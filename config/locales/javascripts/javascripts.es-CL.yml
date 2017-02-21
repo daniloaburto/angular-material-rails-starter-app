@@ -1,3 +1,5 @@
 es-CL:
   js:
-    
+    confirmation:
+      ok: Sí
+      abort: Cancelar

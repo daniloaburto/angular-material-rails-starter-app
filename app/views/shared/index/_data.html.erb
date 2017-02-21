@@ -1,0 +1,66 @@
+<md-table-container>
+  <table
+    md-table>
+    <thead
+      md-head>
+      <tr md-row>
+        <th md-column>#</th>
+        <% attributes.each do |attribute| %>
+          <th md-column><%= attribute[:human_name] %></th>
+        <% end %>
+        <th md-column><%= t('actions', scope: :crud_views) %></th>
+      </tr>
+    </thead>
+
+    <tbody
+      md-body>
+      <% records.each_with_index do |record, index| %>
+      <tr md-row>
+        <td md-cell><%= "#{index + 1}" %></td>
+
+        <% attributes.each do |attribute| %>
+          <td md-cell><%= record[attribute[:name]] %></td>
+        <% end %>
+
+        <td md-cell layout="row">
+          <% if policy(record).show? %>
+            <md-button
+              href="<%= polymorphic_path(record) %>"
+              class="md-small" >
+              <md-tooltip md-direction="top">
+                <%= t('details', scope: :crud_views) %>
+              </md-tooltip>
+              <ng-md-icon icon="visibility" size="16"></ng-md-icon>
+            </md-button>
+          <% end -%>
+
+          <% if policy(record).edit? %>
+            <md-button
+              href="<%= polymorphic_path(record, action: 'edit') %>"
+              class="md-small" >
+              <md-tooltip md-direction="top">
+                <%= t('edit_resource', scope: :crud_views, resource: model.model_name.human) %>
+              </md-tooltip>
+              <ng-md-icon icon="mode_edit" size="16"></ng-md-icon>
+            </md-button>
+          <% end -%>
+
+          <% if policy(record).destroy? %>
+            <md-button
+              href="<%= polymorphic_path(record) %>"
+              data-method="delete"
+              data-title="<%= t('confirmation_required', scope: :crud_views) %>"
+              data-confirm="<%= t('are_you_sure', scope: :crud_views) %>"
+              class="md-small" >
+              <md-tooltip md-direction="top">
+                <%= t('delete_resource', scope: :crud_views, resource: model.model_name.human) %>
+              </md-tooltip>
+              <ng-md-icon icon="delete" size="16"></ng-md-icon>
+            </md-button>
+          <% end -%>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</md-table-container>

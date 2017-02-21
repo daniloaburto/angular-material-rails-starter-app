@@ -24,6 +24,7 @@ pt-BR:
     delete: 'Eliminar'
     delete_model: 'Eliminar %{model}'
     are_you_sure: '¿Voçê está seguro?'
+    confirmation_required: 'É necessária a confirmação'
     cancel: 'Cancelar'
     back: 'Voltar'
     save: 'Salvar'
@@ -39,6 +40,7 @@ pt-BR:
     example_short: 'Ex'
     role_undefined: 'Role indefinido'
     nothing_found: 'Não há %{resources}'
+    index: 'Índice'
   breadcrumb:
     edit: 'Editar'
     create: 'Criar'

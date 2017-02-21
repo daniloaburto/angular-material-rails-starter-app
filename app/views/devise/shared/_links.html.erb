@@ -1,25 +1,49 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to t('sign_in', scope: [:devise, :shared, :links]), new_session_path(resource_name) %><br />
+  <div layout="row" layout-align="center center">
+    <md-button href="<%= new_session_path(resource_name) %>" class="md-default">
+      <%= t('sign_in', scope: [:devise, :shared, :links]) %>
+    </md-button>
+  </div>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t('sign_up', scope: [:devise, :shared, :links]), new_registration_path(resource_name) %><br />
+  <!-- <div layout="row" layout-align="center center">
+    <md-button href="<%= new_registration_path(resource_name) %>" class="md-default">
+      <%= t('sign_up', scope: [:devise, :shared, :links]) %>
+    </md-button>
+  </div> -->
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to t('forgot_your_password', scope: [:devise, :shared, :links]), new_password_path(resource_name) %><br />
+  <div layout="row" layout-align="center center">
+    <md-button href="<%= new_password_path(resource_name) %>" class="md-default">
+      <%= t('forgot_your_password', scope: [:devise, :shared, :links]) %>
+    </md-button>
+  </div>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to t('didn_t_receive_confirmation_instructions', scope: [:devise, :shared, :links]), new_confirmation_path(resource_name) %><br />
+  <div layout="row" layout-align="center center">
+    <md-button href="<%= new_confirmation_path(resource_name) %>" class="md-default">
+      <%= t('didn_t_receive_confirmation_instructions', scope: [:devise, :shared, :links]) %>
+    </md-button>
+  </div>
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to t('didn_t_receive_unlock_instructions', scope: [:devise, :shared, :links]), new_unlock_path(resource_name) %><br />
+  <div layout="row" layout-align="center center">
+    <md-button href="<%= new_unlock_path(resource_name) %>" class="md-default">
+      <%= t('didn_t_receive_unlock_instructions', scope: [:devise, :shared, :links]) %>
+    </md-button>
+  </div>
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to t('sign_in_with_provider', scope: [:devise, :shared, :links], provider: provider.to_s.titleize), omniauth_authorize_path(resource_name, provider) %><br />
+    <div layout="row" layout-align="center center">
+      <md-button href="<%= omniauth_authorize_path(resource_name, provider) %>" class="md-default">
+        <%= t('sign_in_with_provider', scope: [:devise, :shared, :links], provider: provider.to_s.titleize) %>
+      </md-button>
+    </div>
   <% end -%>
 <% end -%>

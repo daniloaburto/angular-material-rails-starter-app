@@ -1,35 +1,55 @@
-<div class="container">
-  <div class="login-header">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2 text-center">
-        <%= image_tag "app-logo.png", alt: 'App Logo', class: 'app-logo' %>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Login</h3>
+<%#= devise_session_flash! %>
+
+<md-card class="padding-15 md-whiteframe-7dp">
+  <%= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'loginForm'} do |f| %>
+    <md-card-content>
+      <md-input-container class="md-block">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <!-- <input
+          ng-model="user.email"
+          ng-pattern="/^.+@.+\..+$/"
+          type="email"
+          name="email"
+          md-no-asterisk
+          required /> -->
+
+        <!-- <div ng-messages="loginForm.email.$error" role="alert">
+          <div ng-message-exp="['required','pattern']">
+            Your email must look like an e-mail address.
           </div>
-          <div class="panel-body">
-            <%= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: 'new_user form-signin'} do |f| %>
-              <%= devise_session_flash! %>
-              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
-              <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-              <% if devise_mapping.rememberable? -%>
-                <div class="checkbox">
-                  <%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-              <% end -%>
-              <%= f.submit "Login", class: "btn btn-primary" %>
-            <% end %>
+        </div> -->
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+        <!-- <input
+          ng-model="user.password"
+          type="password"
+          name="password"
+          minlength="8"
+          md-no-asterisk
+          required /> -->
+        <!-- <div ng-messages="loginForm.password.$error" role="alert">
+          <div ng-message-exp="['required','minlength']">
+            Your password must have at least 8 characters.
           </div>
-      </div>
-      <div class="login-help text-center">
-        <%= render "devise/shared/links" %>
-      </div>
-    </div>
-  </div>
-</div>
+        </div> -->
+      </md-input-container>
+
+      <% if devise_mapping.rememberable? -%>
+        <%= f.check_box :remember_me, {'ng-model': 'rememberMe', 'style': 'display:none'} %>
+        <md-checkbox ng-model="rememberMe" class="md-primary" aria-label="Remember password">
+          <%= t('remember_me', scope: [:activerecord, :attributes, :user])%>
+        </md-checkbox>
+      <% end -%>
+    </md-card-content>
+
+    <md-card-actions layout="row" layout-align="center center">
+      <md-button type="submit" class="md-raised md-primary">Login</md-button>
+    </md-card-actions>
+  <% end %>
+</md-card>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,29 @@
+<md-card-actions layout="row" layout-align="end center">
+  <% unless object.new_record? %>
+    <% if policy(object).destroy? %>
+      <md-button
+        href="<%= polymorphic_path(object) %>"
+        data-method="delete"
+        data-title="<%= t('confirmation_required', scope: :crud_views) %>"
+        data-confirm="<%= t('are_you_sure', scope: :crud_views) %>"
+        class="md-small" >
+        <md-tooltip md-direction="top">
+          <%= t('delete_resource', scope: :crud_views, resource: model.model_name.human) %>
+        </md-tooltip>
+        <ng-md-icon icon="delete" size="16"></ng-md-icon>
+      </md-button>
+    <% end -%>
+  <% end %>
+
+  <% if (policy(object).update? && (action_name == 'edit' or action_name == 'update'))  ||
+        (policy(object).create? && (action_name == 'new' or action_name == 'create')) %>
+    <md-button
+      type="submit"
+      class="md-fab md-accent md-fab-bottom-right">
+      <md-tooltip md-direction="left">
+        <%= t('save', scope: :crud_views) %>
+      </md-tooltip>
+      <md-icon ng-md-icon icon="save" style="fill: #fff"></md-icon>
+    </md-button>
+  <% end %>
+</md-card-actions>

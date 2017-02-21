@@ -8,34 +8,15 @@
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
+ * file per style scope. -> Really?
  *
  */
- $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
- @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
- @import "bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "font-awesome-sprockets";
-@import "font-awesome";
+// Angular
+@import "angular-material/angular-material.css";
+@import "angular-material-icons/angular-material-icons.css";
+@import "angular-material-data-table/dist/md-data-table.css";
 
-// Widow theme
-@import "widow/variables";
-@import "widow/fonts";
-@import "widow/helpers";
-@import "widow/bootstrap-overrides";
 
-@import "widow/background";
-@import "widow/base";
-@import "widow/breadcrumb";
-@import "widow/footer";
-@import "widow/forms";
-@import "widow/header";
-@import "widow/logo";
-@import "widow/nomenclature";
-@import "widow/observation";
-@import "widow/panel";
-@import "widow/table";
-@import "widow/wells";
-
-@import "main";
-@import "widow/lt-ie9";
+// App
+@import "app/app"

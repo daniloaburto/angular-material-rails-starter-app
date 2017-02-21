@@ -1,3 +1,5 @@
 pt-BR:
   js:
-    
+    confirmation:
+      ok: Sim
+      abort: Cancelar
