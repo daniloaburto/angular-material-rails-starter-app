@@ -21,18 +21,18 @@
 
     // Global Directives
     'app.directives.btn.delete',
+    'app.directives.app.notification',
 
     // Global Components
-    'app.components.app-notification',
 
     'app.controllers.base',
     'app.controllers.home',
     // 'app.controllers.resource.action'
 
+    // BEGIN: DO NOT DELETE FOLLOWING TAG
     // <controllers_scaffold>
 
     // </controllers_scaffold>
-
-    // Components
+    // END: DO NOT DELETE FOLLOWING TAG
   ])
 })();

@@ -1,4 +1,5 @@
 <!-- Flash messages -->
+<div>
 <% flash.each do |key, value| %>
   <app-notification
     type="<%= key %>"
@@ -6,3 +7,4 @@
     <%= value %>
   </app-notification>
 <% end %>
+</div>

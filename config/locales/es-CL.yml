@@ -1,7 +1,7 @@
 ---
 es-CL:
   header:
-    html_title: 'Aplicación Rails'
+    html_title: 'App'
     no_javascript: 'Es necesario que tengas activado Javascript en su navegador para utilizar todas las funciones de este sitio.'
     activate_javascript: '¿Cómo activar Javascript?'
     title: 'Hola mundo'

@@ -1,7 +1,7 @@
 ---
 en:
   header:
-    html_title: 'Rails App'
+    html_title: 'App'
     no_javascript: 'You must have JavaScript enabled in your browser to utilize the full functionality of this website.'
     activate_javascript: '¿How to active Javascript?'
     title: 'Hello World'
